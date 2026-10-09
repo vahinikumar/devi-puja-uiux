@@ -3,21 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>దేవతల జాబితా</title>
+<title>దశ దేవీ రూపాల దర్శనం</title>
 <link rel="stylesheet" href="../style.css">
 <script src="../script.js" defer></script>
 </head>
 <body>
-<h1>దేవతల జాబితా</h1>
-<button onclick="selectDevi('bala')">శ్రీ బాలా త్రిపురసుందరి దేవి</button><br><br>
-<button onclick="selectDevi('gaythri')">శ్రీ గాయత్రీ దేవి</button><br><br>
-<button onclick="selectDevi('annapurna')">శ్రీ అన్నపూర్ణా దేవి</button><br><br>
-<button onclick="selectDevi('mahachandi')">శ్రీ కాత్యాయనీదేవి</button><br><br>
-<button onclick="selectDevi('lalitha')">శ్రీ లలితా త్రిపురసుందరీదేవి</button><br><br>
-<button onclick="selectDevi('saraswati')">శ్రీ సరస్వతీదేవి</button><br><br>
-<button onclick="selectDevi('mahalakshmi')">శ్రీ మహాలక్ష్మీదేవి</button><br><br>
-<button onclick="selectDevi('durga')">శ్రీ దుర్గాదేవి</button><br><br>
-<button onclick="selectDevi('mahishasuramardini')">శ్రీ మహిషాసురమర్దినీదేవి</button><br><br>
-<button onclick="selectDevi('rajarajeswari')">శ్రీ రాజరాజేశ్వరీదేవి</button><br><br>
+
+    <header class="app-header">
+        <h1 class="app-title">దశ దేవీ రూపాల దర్శనం</h1>
+        <p class="app-subtitle">నవరాత్రి అలంకార దేవీ రూపమును ఎంచుకుని పూజా క్రమాన్ని ప్రారంభించండి</p>
+        <div class="temple-divider">॥ నమో దేవ్యై మహాదేవ్యై శివాయై సతతం నమః ॥</div>
+    </header>
+
+    <main class="devi-grid">
+        <!-- 1. Bala Tripurasundari -->
+        <article class="devi-card" onclick="selectDevi('bala')" role="button" tabindex="0">
+            <div class="devi-card-img-wrap">
+                <img src="assets/bala.jpg" alt="శ్రీ బాలా త్రిపురసుందరి దేవి" class="devi-card-img">
+            </div>
+            <h2 class="devi-card-name">శ్రీ బాలా త్రిపురసుందరి దేవి</h2>
+        </article>
+
+        <!-- 2. Gayatri -->
+        <article class="devi-card" onclick="selectDevi('gaythri')" role="button" tabindex="0">
+            <div class="devi-card-img-wrap">
+                <img src="assets/gaythri.jpg" alt="శ్రీ గాయత్రీ దేవి" class="devi-card-img">
+            </div>
+            <h2 class="devi-card-name">శ్రీ గాయత్రీ దేవి</h2>
+        </article>
+
+        <!-- 3. Annapurna -->
+        <article class="devi-card" onclick="selectDevi('annapurna')" role="button" tabindex="0">
+            <div class="devi-card-img-wrap">
+                <img src="assets/annapurna.jpg" alt="శ్రీ అన్నపూర్ణా దేవి" class="devi-card-img">
+            </div>
+            <h2 class="devi-card-name">శ్రీ అన్నపూర్ణా దేవి</h2>
+        </article>
+
+        <!-- 4. Mahachandi -->
+        <article class="devi-card" onclick="selectDevi('mahachandi')" role="button" tabindex="0">
+            <div class="devi-card-img-wrap">
+                <img src="assets/mahachandi.jpg" alt="శ్రీ కాత్యాయనీ / మహామాయా దేవి" class="devi-card-img">
+            </div>
+            <h2 class="devi-card-name">శ్రీ కాత్యాయనీదేవి</h2>
+        </article>
+
+        <!-- 5. Lalitha -->
+        <article class="devi-card" onclick="selectDevi('lalitha')" role="button" tabindex="0">
+            <div class="devi-card-img-wrap">
+                <img src="assets/lalitha.jpg" alt="శ్రీ లలితా త్రిపురసుందరీదేవి" class="devi-card-img">
+            </div>
+            <h2 class="devi-card-name">శ్రీ లలితా త్రిపురసుందరీదేవి</h2>
+        </article>
+
+        <!-- 6. Saraswati -->
+        <article class="devi-card" onclick="selectDevi('saraswati')" role="button" tabindex="0">
+            <div class="devi-card-img-wrap">
+                <img src="assets/saraswati.jpg" alt="శ్రీ సరస్వతీదేవి" class="devi-card-img">
+            </div>
+            <h2 class="devi-card-name">శ్రీ సరస్వతీదేవి</h2>
+        </article>
+
+        <!-- 7. Mahalakshmi -->
+        <article class="devi-card" onclick="selectDevi('mahalakshmi')" role="button" tabindex="0">
+            <div class="devi-card-img-wrap">
+                <img src="assets/mahalakshmi.jpg" alt="శ్రీ మహాలక్ష్మీదేవి" class="devi-card-img">
+            </div>
+            <h2 class="devi-card-name">శ్రీ మహాలక్ష్మీదేవి</h2>
+        </article>
+
+        <!-- 8. Durga -->
+        <article class="devi-card" onclick="selectDevi('durga')" role="button" tabindex="0">
+            <div class="devi-card-img-wrap">
+                <img src="assets/durga.jpg" alt="శ్రీ దుర్గాదేవి" class="devi-card-img">
+            </div>
+            <h2 class="devi-card-name">శ్రీ దుర్గాదేవి</h2>
+        </article>
+
+        <!-- 9. Mahishasuramardini -->
+        <article class="devi-card" onclick="selectDevi('mahishasuramardini')" role="button" tabindex="0">
+            <div class="devi-card-img-wrap">
+                <img src="assets/mahishasuramardini.jpg" alt="శ్రీ మహిషాసురమర్దినీదేవి" class="devi-card-img">
+            </div>
+            <h2 class="devi-card-name">శ్రీ మహిషాసురమర్దినీదేవి</h2>
+        </article>
+
+        <!-- 10. Rajarajeswari -->
+        <article class="devi-card" onclick="selectDevi('rajarajeswari')" role="button" tabindex="0">
+            <div class="devi-card-img-wrap">
+                <img src="assets/rajarajeswari.jpg" alt="శ్రీ రాజరాజేశ్వరీదేవి" class="devi-card-img">
+            </div>
+            <h2 class="devi-card-name">శ్రీ రాజరాజేశ్వరీదేవి</h2>
+        </article>
+    </main>
+
 </body>
 </html>

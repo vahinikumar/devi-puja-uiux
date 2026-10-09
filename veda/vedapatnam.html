@@ -8,9 +8,61 @@
 <script src="../script.js" defer></script>
 </head>
 <body>
-<h1>వేదపఠనం</h1>
-<button onclick="suktas()">సూక్తాలు</button><br><br>
-<button onclick="vedas()">వేదాలు</button><br><br>
-<button onclick="itihasas()">ఇతిహాసాలు / గ్రంథాలు</button><br><br>
+
+    <header class="app-header">
+        <div class="app-logo-wrap" style="width: 90px; height: 90px;">
+            <img src="../assets/vedapatnam.png" alt="వేదపఠనం" class="app-logo">
+        </div>
+        <h1 class="app-title">వేదపఠనం & పవిత్ర గ్రంథాలు</h1>
+        <p class="app-subtitle">వేద సూక్తములు, చతుర్వేద మంత్రములు మరియు భారతీయ ఇతిహాసములు</p>
+        <div class="temple-divider">॥ వేదోఽఖిలో ధర్మమూలమ్ ॥</div>
+    </header>
+
+    <main class="container">
+        
+        <!-- 1. Suktas -->
+        <article class="gateway-card" onclick="suktas()" role="button" tabindex="0">
+            <div class="gateway-img-wrap" style="height: 160px;">
+                <img src="../sukta/assets/purusha_suktam.png" alt="సూక్తాలు" class="gateway-img">
+                <div class="gateway-gradient-overlay"></div>
+            </div>
+            <div class="gateway-info">
+                <span class="gateway-badge">వేద స్తోత్రములు</span>
+                <h2 class="gateway-title">1. సూక్తాలు</h2>
+                <p class="gateway-desc">పురుష, శ్రీ, భూ, మన్యు, దుర్గా సూక్తములు</p>
+                <div class="gateway-action">పఠనం చేయండి →</div>
+            </div>
+        </article>
+
+        <!-- 2. Vedas -->
+        <article class="gateway-card" onclick="vedas()" role="button" tabindex="0">
+            <div class="gateway-img-wrap" style="height: 160px;">
+                <img src="../veda/assets/rig_veda.png" alt="చతుర్వేదాలు" class="gateway-img">
+                <div class="gateway-gradient-overlay"></div>
+            </div>
+            <div class="gateway-info">
+                <span class="gateway-badge">సనాతన మూలములు</span>
+                <h2 class="gateway-title">2. వేదాలు (చతుర్వేదాలు)</h2>
+                <p class="gateway-desc">ఋగ్వేదం, యజుర్వేదం, సామవేదం, అథర్వణవేదం</p>
+                <div class="gateway-action">పఠనం చేయండి →</div>
+            </div>
+        </article>
+
+        <!-- 3. Itihasas / Granthas -->
+        <article class="gateway-card" onclick="itihasas()" role="button" tabindex="0">
+            <div class="gateway-img-wrap" style="height: 160px;">
+                <img src="../itihasa/assets/Ramayanam.png" alt="ఇతిహాసాలు" class="gateway-img">
+                <div class="gateway-gradient-overlay"></div>
+            </div>
+            <div class="gateway-info">
+                <span class="gateway-badge">పురాణ వాఙ్మయం</span>
+                <h2 class="gateway-title">3. ఇతిహాసాలు / గ్రంథాలు</h2>
+                <p class="gateway-desc">శ్రీమద్రామాయణం, మహాభారతం, భగవద్గీత, భాగవతం, సుందరకాండ</p>
+                <div class="gateway-action">పఠనం చేయండి →</div>
+            </div>
+        </article>
+
+    </main>
+
 </body>
 </html>

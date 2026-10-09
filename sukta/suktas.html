@@ -8,10 +8,54 @@
 <script src="../script.js" defer></script>
 </head>
 <body>
-<button onclick="purushaSuktam()">పురుష సూక్తం</button><br><br>
-<button onclick="sriSuktam()">శ్రీ సూక్తం</button><br><br>
-<button onclick="bhuSuktam()">భూ సూక్తం</button><br><br>
-<button onclick="manyuSuktam()">మన్యు సూక్తం</button><br><br>
-<button onclick="durgaSuktam()">దుర్గా సూక్తం</button><br><br>
+
+    <header class="app-header">
+        <h1 class="app-title">పవిత్ర వేద సూక్తములు</h1>
+        <p class="app-subtitle">వేద మంత్రమయ స్తోత్ర పఠనము</p>
+        <div class="temple-divider">॥ ఓం శాంతిః శాంతిః శాంతిః ॥</div>
+    </header>
+
+    <main class="vedic-grid">
+        <!-- Purusha Suktam -->
+        <article class="vedic-card" onclick="purushaSuktam()" role="button" tabindex="0">
+            <div class="vedic-card-img-wrap">
+                <img src="assets/purusha_suktam.png" alt="పురుష సూక్తం" class="vedic-card-img">
+            </div>
+            <h2 class="vedic-card-title">పురుష సూక్తం</h2>
+        </article>
+
+        <!-- Sri Suktam -->
+        <article class="vedic-card" onclick="sriSuktam()" role="button" tabindex="0">
+            <div class="vedic-card-img-wrap">
+                <img src="assets/sri_suktam.png" alt="శ్రీ సూక్తం" class="vedic-card-img">
+            </div>
+            <h2 class="vedic-card-title">శ్రీ సూక్తం</h2>
+        </article>
+
+        <!-- Bhu Suktam -->
+        <article class="vedic-card" onclick="bhuSuktam()" role="button" tabindex="0">
+            <div class="vedic-card-img-wrap">
+                <img src="assets/bhu_suktam.png" alt="భూ సూక్తం" class="vedic-card-img">
+            </div>
+            <h2 class="vedic-card-title">భూ సూక్తం</h2>
+        </article>
+
+        <!-- Manyu Suktam -->
+        <article class="vedic-card" onclick="manyuSuktam()" role="button" tabindex="0">
+            <div class="vedic-card-img-wrap">
+                <img src="assets/manyu_suktam.png" alt="మన్యు సూక్తం" class="vedic-card-img">
+            </div>
+            <h2 class="vedic-card-title">మన్యు సూక్తం</h2>
+        </article>
+
+        <!-- Durga Suktam -->
+        <article class="vedic-card" onclick="durgaSuktam()" role="button" tabindex="0">
+            <div class="vedic-card-img-wrap">
+                <img src="assets/durga_suktam.png" alt="దుర్గా సూక్తం" class="vedic-card-img">
+            </div>
+            <h2 class="vedic-card-title">దుర్గా సూక్తం</h2>
+        </article>
+    </main>
+
 </body>
 </html>

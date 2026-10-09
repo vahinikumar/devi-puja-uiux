@@ -3,14 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>వేదాలు</title>
+<title>చతుర్వేదాలు</title>
 <link rel="stylesheet" href="../style.css">
 <script src="../script.js" defer></script>
 </head>
 <body>
-<button onclick="rigvedam()">ఋగ్వేదం</button><br><br>
-<button onclick="yajurvedam()">యజుర్వేదం</button><br><br>
-<button onclick="samavedam()">సామవేదం</button><br><br>
-<button onclick="atharvavedam()">అథర్వవేదం</button><br><br>
+
+    <header class="app-header">
+        <h1 class="app-title">చతుర్వేదాలు</h1>
+        <p class="app-subtitle">సనాతన ధర్మ మూల స్తంభాలైన నాలుగు పవిత్ర వేదములు</p>
+        <div class="temple-divider">॥ వేద మాతృభ్యో నమః ॥</div>
+    </header>
+
+    <main class="vedic-grid">
+        <!-- Rigveda -->
+        <article class="vedic-card" onclick="rigvedam()" role="button" tabindex="0">
+            <div class="vedic-card-img-wrap">
+                <img src="assets/rig_veda.png" alt="ఋగ్వేదం" class="vedic-card-img">
+            </div>
+            <h2 class="vedic-card-title">ఋగ్వేదం</h2>
+        </article>
+
+        <!-- Yajurveda -->
+        <article class="vedic-card" onclick="yajurvedam()" role="button" tabindex="0">
+            <div class="vedic-card-img-wrap">
+                <img src="assets/yajur_veda.png" alt="యజుర్వేదం" class="vedic-card-img">
+            </div>
+            <h2 class="vedic-card-title">యజుర్వేదం</h2>
+        </article>
+
+        <!-- Samaveda -->
+        <article class="vedic-card" onclick="samavedam()" role="button" tabindex="0">
+            <div class="vedic-card-img-wrap">
+                <img src="assets/sam_veda.png" alt="సామవేదం" class="vedic-card-img">
+            </div>
+            <h2 class="vedic-card-title">సామవేదం</h2>
+        </article>
+
+        <!-- Atharvaveda -->
+        <article class="vedic-card" onclick="atharvavedam()" role="button" tabindex="0">
+            <div class="vedic-card-img-wrap">
+                <img src="assets/atharava_veda.png" alt="అథర్వవేదం" class="vedic-card-img">
+            </div>
+            <h2 class="vedic-card-title">అథర్వవేదం</h2>
+        </article>
+    </main>
+
 </body>
 </html>

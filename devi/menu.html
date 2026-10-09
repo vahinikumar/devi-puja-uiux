@@ -3,18 +3,138 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>దేవతల జాబితా</title>
+<title>దేవతల పూజా క్రమం</title>
 <link rel="stylesheet" href="../style.css">
 <script src="../script.js" defer></script>
 </head>
 <body>
-<h1>దేవతల పూజా క్రమం</h1>
-<button onclick="sankalpam()">సంకల్పం</button><br><br>
-<button onclick="shodashopachara()">షోడశోపచార పూజ</button><br><br>
-<button onclick="lalithaSahasranama()">లలితా సహస్రనామం</button><br><br>
-<button onclick="ashtottharaShatnama()">అష్టోత్తర శతనామావళి</button><br><br>
-<button onclick="deviKhadgamaal()">దేవీ ఖడ్గమాల</button><br><br>
-<button onclick="mantraPushpam()">మంత్ర పుష్పం</button><br><br>
-<button data-evening-only onclick="window.open('../veda/vedapatnam.html','_blank')">తదుపరి → వేదపఠనం</button><br><br>
+
+    <!-- Dynamic Selected Devi Hero -->
+    <header class="app-header" style="padding-bottom: 8px;">
+        <div class="selected-devi-hero">
+            <div class="devi-hero-avatar-wrap">
+                <img id="deviHeroImg" src="assets/bala.jpg" alt="శ్రీ దేవి" class="devi-hero-avatar">
+            </div>
+            <h1 id="deviHeroTitle" class="devi-hero-title">శ్రీ దేవీ పూజా క్రమం</h1>
+            <p id="deviHeroSubtitle" class="devi-hero-subtitle">నిత్య పూజా విధి మరియు స్తోత్ర పారాయణం</p>
+        </div>
+        <div class="temple-divider">॥ నమోఽస్తు తే మహాదేవి ॥</div>
+    </header>
+
+    <!-- Puja Journey Stepper Cards -->
+    <main class="container">
+        <section class="puja-flow-list">
+            
+            <!-- 1. Sankalpam -->
+            <article class="puja-step-card" onclick="sankalpam()" role="button" tabindex="0">
+                <div class="puja-step-icon-wrap">
+                    <img src="../common/assets/sankalpam.png" alt="సంకల్పం" class="puja-step-icon">
+                </div>
+                <div class="puja-step-content">
+                    <h2 class="puja-step-title">1. సంకల్పం</h2>
+                    <p class="puja-step-desc">పూజా ఆరంభ పవిత్ర సంకల్ప విధి</p>
+                </div>
+                <div class="puja-step-arrow">→</div>
+            </article>
+
+            <!-- 2. Shodashopachara Puja -->
+            <article class="puja-step-card" onclick="shodashopachara()" role="button" tabindex="0">
+                <div class="puja-step-icon-wrap">
+                    <img src="../common/assets/shodashopachara_purnakalasam.png" alt="షోడశోపచార పూజ" class="puja-step-icon">
+                </div>
+                <div class="puja-step-content">
+                    <h2 class="puja-step-title">2. షోడశోపచార పూజ</h2>
+                    <p class="puja-step-desc">16 ఉపచారములతో దేవీ ఆరాధన</p>
+                </div>
+                <div class="puja-step-arrow">→</div>
+            </article>
+
+            <!-- 3. Lalitha Sahasranamam -->
+            <article class="puja-step-card" onclick="lalithaSahasranama()" role="button" tabindex="0">
+                <div class="puja-step-icon-wrap">
+                    <img src="../common/assets/lalitha_sahasranamam.png" alt="లలితా సహస్రనామం" class="puja-step-icon">
+                </div>
+                <div class="puja-step-content">
+                    <h2 class="puja-step-title">3. లలితా సహస్రనామం</h2>
+                    <p class="puja-step-desc">శ్రీ లలితా సహస్రనామ స్తోత్ర పఠనం</p>
+                </div>
+                <div class="puja-step-arrow">→</div>
+            </article>
+
+            <!-- 4. Ashtottara Shatanamavali -->
+            <article class="puja-step-card" onclick="ashtottharaShatnama()" role="button" tabindex="0">
+                <div class="puja-step-icon-wrap">
+                    <img src="../common/assets/ashtottara_shatanamavali.png" alt="అష్టోత్తర శతనామావళి" class="puja-step-icon">
+                </div>
+                <div class="puja-step-content">
+                    <h2 class="puja-step-title">4. అష్టోత్తర శతనామావళి</h2>
+                    <p class="puja-step-desc">ఎంచుకున్న దేవి యొక్క 108 నామ పూజ</p>
+                </div>
+                <div class="puja-step-arrow">→</div>
+            </article>
+
+            <!-- 5. Devi Khadgamala -->
+            <article class="puja-step-card" onclick="deviKhadgamaal()" role="button" tabindex="0">
+                <div class="puja-step-icon-wrap">
+                    <img src="../common/assets/devi_khadgamala.png" alt="దేవీ ఖడ్గమాల" class="puja-step-icon">
+                </div>
+                <div class="puja-step-content">
+                    <h2 class="puja-step-title">5. దేవీ ఖడ్గమాలా స్తోత్రం</h2>
+                    <p class="puja-step-desc">శ్రీచక్ర అధిష్టాన దేవతల రక్షా స్తోత్రం</p>
+                </div>
+                <div class="puja-step-arrow">→</div>
+            </article>
+
+            <!-- 6. Mantra Pushpam -->
+            <article class="puja-step-card" onclick="mantraPushpam()" role="button" tabindex="0">
+                <div class="puja-step-icon-wrap">
+                    <img src="../common/assets/mantra_pushpam.png" alt="మంత్ర పుష్పం" class="puja-step-icon">
+                </div>
+                <div class="puja-step-content">
+                    <h2 class="puja-step-title">6. మంత్ర పుష్పం</h2>
+                    <p class="puja-step-desc">వేదోక్త మంత్రపుష్ప సమర్పణ</p>
+                </div>
+                <div class="puja-step-arrow">→</div>
+            </article>
+
+        </section>
+
+        <!-- Evening Conditional Vedic Gateway -->
+        <div style="text-align:center; margin-top: 14px;">
+            <button class="btn-gold" data-evening-only onclick="window.open('../veda/vedapatnam.html','_blank')">
+                తదుపరి → వేదపఠనం
+            </button>
+        </div>
+    </main>
+
+    <script>
+        // Update Devi Hero details dynamically from localStorage
+        document.addEventListener("DOMContentLoaded", () => {
+            const devi = localStorage.getItem("selectedDevi") || "bala";
+            const imgEl = document.getElementById("deviHeroImg");
+            const titleEl = document.getElementById("deviHeroTitle");
+            
+            const deviNames = {
+                bala: "శ్రీ బాలా త్రిపురసుందరి దేవి",
+                gaythri: "శ్రీ గాయత్రీ దేవి",
+                annapurna: "శ్రీ అన్నపూర్ణా దేవి",
+                mahachandi: "శ్రీ కాత్యాయనీ / మహామాయా దేవి",
+                lalitha: "శ్రీ లలితా త్రిపురసుందరీదేవి",
+                saraswati: "శ్రీ సరస్వతీదేవి",
+                mahalakshmi: "శ్రీ మహాలక్ష్మీదేవి",
+                durga: "శ్రీ దుర్గాదేవి",
+                mahishasuramardini: "శ్రీ మహిషాసురమర్దినీదేవి",
+                rajarajeswari: "శ్రీ రాజరాజేశ్వరీదేవి"
+            };
+
+            if (imgEl) {
+                imgEl.src = `assets/${devi}.jpg`;
+            }
+            if (titleEl && deviNames[devi]) {
+                titleEl.textContent = deviNames[devi];
+            }
+        });
+    </script>
+
 </body>
 </html>

@@ -8,10 +8,54 @@
 <script src="../script.js" defer></script>
 </head>
 <body>
-<button onclick="ramayanam()">రామాయణం</button><br><br>
-<button onclick="mahabharatam()">మహాభారతం</button><br><br>
-<button onclick="bhagavatam()">భగవతం</button><br><br>
-<button onclick="bhagavadgita()">భగవద్గీత</button><br><br>
-<button onclick="sundrakanda()">సుందరకాండ</button><br><br>
+
+    <header class="app-header">
+        <h1 class="app-title">ఇతిహాసాలు / పవిత్ర గ్రంథాలు</h1>
+        <p class="app-subtitle">భారతీయ పౌరాణిక ఇతిహాసములు & మోక్ష గ్రంథములు</p>
+        <div class="temple-divider">॥ ధర్మో రక్షతి రక్షితః ॥</div>
+    </header>
+
+    <main class="vedic-grid">
+        <!-- Ramayanam -->
+        <article class="vedic-card" onclick="ramayanam()" role="button" tabindex="0">
+            <div class="vedic-card-img-wrap">
+                <img src="assets/Ramayanam.png" alt="శ్రీమద్రామాయణం" class="vedic-card-img">
+            </div>
+            <h2 class="vedic-card-title">శ్రీమద్రామాయణం</h2>
+        </article>
+
+        <!-- Mahabharatam -->
+        <article class="vedic-card" onclick="mahabharatam()" role="button" tabindex="0">
+            <div class="vedic-card-img-wrap">
+                <img src="assets/bharatham.png" alt="మహాభారతం" class="vedic-card-img">
+            </div>
+            <h2 class="vedic-card-title">మహాభారతం</h2>
+        </article>
+
+        <!-- Bhagavatam -->
+        <article class="vedic-card" onclick="bhagavatam()" role="button" tabindex="0">
+            <div class="vedic-card-img-wrap">
+                <img src="assets/bhagavatam.png" alt="శ్రీమద్భాగవతం" class="vedic-card-img">
+            </div>
+            <h2 class="vedic-card-title">శ్రీమద్భాగవతం</h2>
+        </article>
+
+        <!-- Bhagavad Gita -->
+        <article class="vedic-card" onclick="bhagavadgita()" role="button" tabindex="0">
+            <div class="vedic-card-img-wrap">
+                <img src="assets/gita.png" alt="శ్రీమద్భగవద్గీత" class="vedic-card-img">
+            </div>
+            <h2 class="vedic-card-title">శ్రీమద్భగవద్గీత</h2>
+        </article>
+
+        <!-- Sundarakanda -->
+        <article class="vedic-card" onclick="sundrakanda()" role="button" tabindex="0">
+            <div class="vedic-card-img-wrap">
+                <img src="assets/sundrakandha.png" alt="సుందరకాండ" class="vedic-card-img">
+            </div>
+            <h2 class="vedic-card-title">సుందరకాండ</h2>
+        </article>
+    </main>
+
 </body>
 </html>
