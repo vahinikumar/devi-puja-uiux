@@ -8,30 +8,19 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
-<body class="has-bottom-nav">
+<body class="home-page has-bottom-nav">
 
-    <!-- Header Section (South Indian Temple Arch Header - Slide 01 Reference) -->
-    <header class="home-temple-header">
-        <!-- Traditional Brass Temple Hamburger Button -->
-        <button class="hamburger-btn" onclick="toggleDrawer(true)" aria-label="మెనూ">☰</button>
+    <!-- Header Section (Screen1 South Indian Temple Arch Benchmark) -->
+    <header class="home-temple-header" role="banner">
+        <!-- Brass Temple Hamburger Button (Hit Area on Arch Door Fitting) -->
+        <button class="hit menu" onclick="toggleDrawer(true)" aria-label="మెనూ"></button>
         
-        <!-- Hanging Brass Deepam (Right Side) -->
-        <div class="hanging-deepam-wrap" aria-hidden="true">
-            <span class="deepam-chain"></span>
-            <span class="deepam-lamp">🪔</span>
-        </div>
+        <!-- Temple Title & Subtitle sitting directly in the carved plaque -->
+        <h1 class="t">దేవి భక్తి & వేదపఠనం</h1>
+        <div class="sub t">భక్తి • జ్ఞానం • శాంతి</div>
 
+        <!-- Hidden PWA install button preserved -->
         <button id="installBtn" style="display:none;">📲 యాప్ ఇన్‌స్టాల్ చేయండి</button>
-
-        <!-- Centered Ivory Temple Name Board Plaque -->
-        <div class="temple-title-panel">
-            <div class="plaque-corner top-left"></div>
-            <div class="plaque-corner top-right"></div>
-            <div class="plaque-corner bottom-left"></div>
-            <div class="plaque-corner bottom-right"></div>
-            <h1 class="home-title">దేవి భక్తి & వేదపఠనం</h1>
-            <p class="home-subtitle">భక్తి • జ్ఞానం • శాంతి</p>
-        </div>
     </header>
 
     <!-- Side Drawer (In-page only) -->
