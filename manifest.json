@@ -1,10 +1,10 @@
 {
-  "id": "/devi-puja/",
+  "id": "/devi-puja-uiux/",
   "name": "Telugu Devotional and Vedic Learning",
   "short_name": "Devotional Veda",
   "description": "Telugu devotional prayers, puja procedures and Vedic learning",
   "lang": "te",
-  "start_url": "/devi-puja/",
+  "start_url": "/devi-puja-uiux/",
   "display": "standalone",
   "orientation": "portrait",
   "icons": [
