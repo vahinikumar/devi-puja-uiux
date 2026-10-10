@@ -7,18 +7,77 @@
 <link rel="stylesheet" href="../style.css">
 <script src="../script.js" defer></script>
 </head>
-<body>
+<body class="devi-menu-page">
 
-    <!-- Dynamic Selected Devi Hero -->
-    <header class="app-header" style="padding-bottom: 8px;">
-        <div class="selected-devi-hero">
-            <div class="devi-hero-avatar-wrap">
-                <img id="deviHeroImg" src="assets/bala.jpg" alt="శ్రీ దేవి" class="devi-hero-avatar">
-            </div>
-            <h1 id="deviHeroTitle" class="devi-hero-title">శ్రీ దేవీ పూజా క్రమం</h1>
-            <p id="deviHeroSubtitle" class="devi-hero-subtitle">నిత్య పూజా విధి మరియు స్తోత్ర పారాయణం</p>
+    <!-- Upper Part: South Indian Temple Gateway Deity Header (Matching devi.html) -->
+    <header class="hd">
+        <svg class="shape" viewBox="0 0 400 335" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+                <clipPath id="c"><path d="M0 0H400V128C400 138 392 142 384 146C366 156 352 172 340 200C328 228 300 262 262 280C232 294 214 304 200 322C186 304 168 294 138 280C100 262 72 228 60 200C48 172 34 156 16 146C8 142 0 138 0 128Z"/></clipPath>
+                <!-- Antique Gold Gradient for Arch Border (Exact from devi.html) -->
+                <linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#f6d77c"/>
+                    <stop offset=".5" stop-color="#b8821f"/>
+                    <stop offset="1" stop-color="#f6d77c"/>
+                </linearGradient>
+                <!-- Saffron Devotional Glow (Exact from devi.html) -->
+                <radialGradient id="r" cx="200" cy="185" r="170" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#c8402a" stop-opacity=".45"/>
+                    <stop offset="1" stop-color="#c8402a" stop-opacity="0"/>
+                </radialGradient>
+                <!-- Warm Parchment Toranam Highlight -->
+                <radialGradient id="ivoryHighlight" cx="200" cy="45" r="180" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#f9ebc9" stop-opacity=".22"/>
+                    <stop offset="1" stop-color="#4a0a0a" stop-opacity="0"/>
+                </radialGradient>
+            </defs>
+            <g clip-path="url(#c)">
+                <!-- Traditional Deep Maroon Base (Exact from devi.html) -->
+                <rect width="400" height="335" fill="#4a0a0a"/>
+                <!-- Subtle Traditional Toranam Arcs -->
+                <ellipse cx="200" cy="20" rx="160" ry="128" fill="none" stroke="#f6d77c" stroke-width="1.2" stroke-dasharray="3 5" opacity="0.35"/>
+                <ellipse cx="200" cy="20" rx="172" ry="140" fill="none" stroke="#d9a441" stroke-width="0.8" opacity="0.25"/>
+                <!-- Devotional Saffron and Warm Ivory Glow Layers -->
+                <rect width="400" height="335" fill="url(#r)"/>
+                <rect width="400" height="335" fill="url(#ivoryHighlight)"/>
+            </g>
+            <path d="M0 0H400V128C400 138 392 142 384 146C366 156 352 172 340 200C328 228 300 262 262 280C232 294 214 304 200 322C186 304 168 294 138 280C100 262 72 228 60 200C48 172 34 156 16 146C8 142 0 138 0 128Z" fill="none" stroke="url(#g)" stroke-width="3" stroke-linejoin="round"/>
+        </svg>
+
+        <!-- Top Left: Brass Back Button -->
+        <button class="btn back" onclick="window.location.href='index.html'" aria-label="వెనుకకు">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 12H5M11 5l-7 7 7 7"/>
+            </svg>
+        </button>
+
+        <!-- Top Right: Decorative Devotional Bell / Deepam Icon -->
+        <div class="btn side" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 3c1.5 2.5 1.5 5 0 7.5C10.5 8 10.5 5.500 12 3zM6 8c3 .5 5 2.500 5.500 5.500C8.500 13 6.500 11 6 8zM18 8c-.5 3-2.500 5-5.500 5.500C13 10.500 15 8.500 18 8zM4 15c4 0 6 1.500 8 4 2-2.500 4-4 8-4-1 4-4.500 6-8 6s-7-2-8-6z"/>
+            </svg>
         </div>
-        <div class="temple-divider">॥ నమోఽస్తు తే మహాదేవి ॥</div>
+
+        <!-- Center: Dynamic Devi Title (deviHeroTitle) -->
+        <h1 class="title" id="deviHeroTitle">శ్రీ దేవీ పూజా క్రమం</h1>
+
+        <!-- Preserved subtitle hook for script compatibility -->
+        <span id="deviHeroSubtitle" class="subtitle-hidden">నిత్య పూజా విధి మరియు స్తోత్ర పారాయణం</span>
+
+        <!-- Decorative Gold Divider (Exact from devi.html) -->
+        <svg class="div" viewBox="0 0 120 10" aria-hidden="true">
+            <line x1="2" y1="5" x2="50" y2="5" stroke="#d9a441" stroke-width=".8"/>
+            <line x1="70" y1="5" x2="118" y2="5" stroke="#d9a441" stroke-width=".8"/>
+            <circle cx="60" cy="5" r="2.5" fill="#d9a441"/>
+            <path d="M54 5l-3 -2.5 3 -2.5M66 5l3 -2.5 -3 -2.5" fill="none" stroke="#d9a441" stroke-width=".8"/>
+        </svg>
+
+        <!-- Center Deity Avatar Frame (deviHeroImg) -->
+        <div class="frame">
+            <div class="in">
+                <img id="deviHeroImg" src="assets/bala.jpg" alt="శ్రీ దేవి">
+            </div>
+        </div>
     </header>
 
     <!-- Puja Journey Stepper Cards -->

@@ -627,6 +627,149 @@ h1.t {
     justify-content: center;
 }
 
+/* Devi Selected Common Page Header (Matching devi.html Benchmark) */
+body.devi-menu-page {
+    background: #f9ebc9 !important;
+    background: linear-gradient(#f9ebc9, #f6e2b6) fixed !important;
+    padding-top: 0;
+}
+
+.hd {
+    position: relative;
+    container-type: inline-size;
+    aspect-ratio: 400 / 335;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.shape {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: drop-shadow(0 0.8cqw 1.2cqw rgba(60, 10, 10, 0.3));
+}
+
+.btn {
+    position: absolute;
+    top: 4.5cqw;
+    width: 10.5cqw;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 0.3cqw solid #d9a441;
+    background: rgba(40, 5, 5, 0.35);
+    box-shadow: 0 0.4cqw 0.8cqw rgba(30, 5, 5, 0.4), inset 0 0.15cqw 0.3cqw rgba(246, 215, 124, 0.25);
+    color: #f3cd6c;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    cursor: pointer;
+    z-index: 4;
+    overflow: hidden;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.btn:active {
+    transform: scale(0.93);
+    background: rgba(60, 10, 10, 0.7);
+}
+
+.btn.back {
+    left: 4.5cqw;
+}
+
+.btn.side {
+    right: 4.5cqw;
+}
+
+.btn svg {
+    width: 55%;
+    height: 55%;
+    filter: drop-shadow(0 0.15cqw 0.25cqw rgba(40, 5, 5, 0.5));
+}
+
+.btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.title {
+    position: absolute;
+    top: 5cqw;
+    left: 17cqw;
+    right: 17cqw;
+    text-align: center;
+    margin: 0;
+    z-index: 3;
+    font-family: 'Noto Serif Telugu', serif;
+    font-weight: 700;
+    font-size: 4.3cqw;
+    line-height: 1.3;
+    color: #f8e3b0;
+    text-wrap: balance;
+    text-shadow: 0 0.25cqw 0.5cqw rgba(40, 5, 5, 0.9), 0 0 0.8cqw rgba(246, 215, 124, 0.4);
+}
+
+.subtitle-hidden {
+    display: none;
+}
+
+.div {
+    position: absolute;
+    top: 15.5cqw;
+    left: 35cqw;
+    width: 30cqw;
+    z-index: 3;
+    filter: drop-shadow(0 0.2cqw 0.4cqw rgba(40, 5, 5, 0.6));
+}
+
+.frame {
+    position: absolute;
+    left: 26.5cqw;
+    top: 22.75cqw;
+    width: 47cqw;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    padding: 1.6cqw;
+    z-index: 3;
+    background: conic-gradient(#f6d77c, #b8821f, #f6d77c, #b8821f, #f6d77c);
+    outline: 0.35cqw solid #d9a441;
+    outline-offset: 0.9cqw;
+    box-shadow: 0 1.5cqw 3.5cqw rgba(40, 5, 5, 0.5), 0 0 1.8cqw rgba(217, 164, 65, 0.35);
+}
+
+.in {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.8cqw solid #6b1414;
+    background: radial-gradient(circle, #8a2a1a, #3a0808);
+}
+
+.in img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.pick {
+    text-align: center;
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin: 1.2rem 0;
+}
+
 /* Selected Devi Hero (Screen 3 - Approved Reference) */
 .selected-devi-hero {
     background: linear-gradient(145deg, #530F19, #2D070D);
