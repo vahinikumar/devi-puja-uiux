@@ -10,11 +10,25 @@
 </head>
 <body class="has-bottom-nav">
 
-    <!-- Header Section (Matches Slide 01 Reference Exactly) -->
+    <!-- Header Section (South Indian Temple Arch Header - Slide 01 Reference) -->
     <header class="home-temple-header">
+        <!-- Traditional Brass Temple Hamburger Button -->
         <button class="hamburger-btn" onclick="toggleDrawer(true)" aria-label="మెనూ">☰</button>
+        
+        <!-- Hanging Brass Deepam (Right Side) -->
+        <div class="hanging-deepam-wrap" aria-hidden="true">
+            <span class="deepam-chain"></span>
+            <span class="deepam-lamp">🪔</span>
+        </div>
+
         <button id="installBtn" style="display:none;">📲 యాప్ ఇన్‌స్టాల్ చేయండి</button>
+
+        <!-- Centered Ivory Temple Name Board Plaque -->
         <div class="temple-title-panel">
+            <div class="plaque-corner top-left"></div>
+            <div class="plaque-corner top-right"></div>
+            <div class="plaque-corner bottom-left"></div>
+            <div class="plaque-corner bottom-right"></div>
             <h1 class="home-title">దేవి భక్తి & వేదపఠనం</h1>
             <p class="home-subtitle">భక్తి • జ్ఞానం • శాంతి</p>
         </div>
@@ -49,17 +63,17 @@
     <!-- Main Navigation Container -->
     <main class="container">
         
-        <!-- Card 1: Devi Bhakti (Horizontal Split as in Slide 01) -->
+        <!-- Card 1: 🌺 దేవి భక్తి (Vertical Mobile Card) -->
         <section class="gateway-card" onclick="window.open('devi/index.html','_blank')" role="button" tabindex="0">
             <div class="gateway-img-wrap">
                 <img src="assets/devi.jpeg" alt="దేవి భక్తి" class="gateway-img">
             </div>
             <div class="gateway-info">
-                <h2 class="gateway-title">దేవి భక్తి</h2>
+                <h2 class="gateway-title">🌺 దేవి భక్తి</h2>
                 <ul class="gateway-bullet-list">
-                    <li>దశ మహావిద్యా ఆరాధన</li>
-                    <li>స్తోత్ర పాఠాలు</li>
-                    <li>పూజా విధులు</li>
+                    <li>• దశ మహావిద్యా ఆరాధన</li>
+                    <li>• స్తోత్ర పాఠాలు</li>
+                    <li>• పూజా విధులు</li>
                 </ul>
                 <div class="gateway-cta-wrap">
                     <span class="gateway-pill-btn">ప్రవేశించండి ›</span>
@@ -67,16 +81,16 @@
             </div>
         </section>
 
-        <!-- Card 2: Vedapatnam (Horizontal Split as in Slide 01) -->
+        <!-- Card 2: 🪔 వేదపఠనం (Vertical Mobile Card) -->
         <section class="gateway-card" data-evening-only onclick="window.open('veda/vedapatnam.html','_blank')" role="button" tabindex="0">
             <div class="gateway-img-wrap">
                 <img src="assets/vedapatnam.png" alt="వేదపఠనం" class="gateway-img">
             </div>
             <div class="gateway-info">
-                <h2 class="gateway-title">వేదపఠనం</h2>
+                <h2 class="gateway-title">🪔 వేదపఠనం</h2>
                 <ul class="gateway-bullet-list">
-                    <li>సూక్తులు • వేద మంత్రాలు</li>
-                    <li>పారాయణం • అర్థం</li>
+                    <li>• సూక్తులు • వేద మంత్రాలు</li>
+                    <li>• పారాయణం • అర్థం</li>
                 </ul>
                 <div class="gateway-cta-wrap">
                     <span class="gateway-pill-btn">ప్రవేశించండి ›</span>
@@ -86,7 +100,7 @@
 
     </main>
 
-    <!-- Bottom Navigation Bar (Slide 01 Reference) -->
+    <!-- Bottom Navigation Bar (Slide 01 Reference: 2 Items Only) -->
     <nav class="app-bottom-nav" aria-label="ముఖ్య నావిగేషన్">
         <button class="bottom-nav-item active" onclick="window.location.href='index.html'" aria-label="హోమ్">
             <span class="bottom-nav-icon">🏠</span>
