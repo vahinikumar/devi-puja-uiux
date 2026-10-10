@@ -65,16 +65,17 @@ body {
     position: relative;
 }
 
-/* Reference South Indian Temple Arch Header (Screen 01 Slide Reference) */
+/* Reference South Indian Temple Arch Header (Screen 01 Slide Reference)
+   Atmosphere: Garbhagudi entrance / Temple doorway with curved arch & golden toranam rim */
 .home-temple-header {
     width: 100%;
     max-width: 680px;
-    margin: 0 auto 20px;
-    padding: 32px 18px 26px;
-    background: linear-gradient(180deg, #38060C 0%, #4D0912 60%, #5C0D18 100%);
-    border-radius: 0 0 28px 28px;
-    border-bottom: 3px solid var(--color-gold);
-    box-shadow: 0 10px 28px rgba(56, 6, 12, 0.35), inset 0 2px 12px rgba(231, 196, 121, 0.15);
+    margin: 0 auto 22px;
+    padding: 34px 18px 28px;
+    background: linear-gradient(180deg, #38060C 0%, #4D0912 55%, #5C0D18 100%);
+    border-radius: 0 0 32px 32px;
+    border-bottom: 3.5px solid var(--color-gold);
+    box-shadow: 0 10px 30px rgba(56, 6, 12, 0.4), inset 0 2px 14px rgba(231, 196, 121, 0.2);
     position: relative;
     text-align: center;
     overflow: visible;
@@ -85,16 +86,32 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: 0 0 28px 28px;
-    background: radial-gradient(ellipse at 50% 0%, rgba(231, 196, 121, 0.22) 0%, transparent 75%);
+    border-radius: 0 0 32px 32px;
+    background: 
+        radial-gradient(ellipse at 50% 0%, rgba(231, 196, 121, 0.25) 0%, transparent 72%),
+        repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(231, 196, 121, 0.08) 24px, rgba(231, 196, 121, 0.08) 26px);
     pointer-events: none;
 }
 
-/* Hanging Brass Deepam (Right Side) */
+/* Golden Toranam curved rim along arch bottom */
+.home-temple-header::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 15%;
+    right: 15%;
+    height: 3px;
+    background: radial-gradient(ellipse at center, var(--color-gold-light) 0%, transparent 80%);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* Hanging Brass Deepam (Home Screen Only - South Indian Temple Arch Architecture) */
 .hanging-deepam-wrap {
     position: absolute;
     top: 0;
-    right: 22px;
+    right: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -103,18 +120,24 @@ body {
 }
 
 .deepam-chain {
-    width: 1.5px;
-    height: 24px;
-    background: repeating-linear-gradient(to bottom, var(--color-gold-light), var(--color-gold-light) 3px, #7A5714 3px, #7A5714 6px);
-    box-shadow: 0 0 4px rgba(231, 196, 121, 0.6);
+    width: 2px;
+    height: 28px;
+    background: repeating-linear-gradient(to bottom, #E7C479, #E7C479 4px, #7A5714 4px, #7A5714 8px);
+    box-shadow: 0 0 5px rgba(231, 196, 121, 0.7);
 }
 
 .deepam-lamp {
-    font-size: 1.6rem;
+    font-size: 1.65rem;
     line-height: 1;
-    filter: drop-shadow(0 2px 10px rgba(231, 196, 121, 0.85));
+    filter: drop-shadow(0 2px 12px rgba(231, 196, 121, 0.95)) drop-shadow(0 0 4px #FFB300);
     display: block;
-    margin-top: -2px;
+    margin-top: -3px;
+    animation: gentleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes gentleGlow {
+    from { filter: drop-shadow(0 2px 10px rgba(231, 196, 121, 0.85)) drop-shadow(0 0 3px #FFB300); }
+    to { filter: drop-shadow(0 3px 14px rgba(231, 196, 121, 1)) drop-shadow(0 0 6px #FFD54F); }
 }
 
 /* Ivory / Cream Ornamental Temple Name Board */
@@ -122,10 +145,10 @@ body {
     background: #FFFDF7;
     border: 1.8px solid var(--color-gold);
     border-radius: 12px;
-    padding: 14px 24px;
+    padding: 14px 26px;
     display: inline-block;
     max-width: 90%;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22), 0 0 14px rgba(198, 146, 52, 0.25);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.24), 0 0 16px rgba(198, 146, 52, 0.28);
     position: relative;
     z-index: 2;
 }
@@ -133,8 +156,8 @@ body {
 /* Plaque Ornamental Corner Accents */
 .plaque-corner {
     position: absolute;
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     border-color: var(--color-gold);
     border-style: solid;
     pointer-events: none;
@@ -171,6 +194,7 @@ body {
     font-weight: 800;
     line-height: 1.3;
     margin-bottom: 4px;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
 }
 
 .home-subtitle {
@@ -273,31 +297,35 @@ body {
     background: var(--color-gold-pale);
 }
 
-/* Home Temple Brass Hamburger Menu Button */
+/* Home Temple Brass Hamburger Menu Button (Antique Temple Door Hardware Style) */
 .hamburger-btn {
     position: absolute;
     top: 16px;
     left: 18px;
-    background: linear-gradient(135deg, #7A5714 0%, #4D3308 100%);
-    border: 1.8px solid var(--color-gold-light);
+    background: radial-gradient(circle at 35% 35%, #9E7422 0%, #68480F 60%, #442F08 100%);
+    border: 2px solid var(--color-gold-light);
     color: #FFFDF7;
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     line-height: 1;
-    width: 38px;
-    height: 38px;
-    border-radius: 6px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.25);
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.45), 
+        inset 0 1px 2px rgba(255, 255, 255, 0.4),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.5);
     z-index: 10;
-    transition: all 0.2s ease;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hamburger-btn:active {
-    transform: scale(0.94);
-    background: #4D3308;
+    transform: scale(0.93);
+    background: #442F08;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 /* Side Drawer (Home Screen Only) */
@@ -933,6 +961,7 @@ body {
     text-overflow: ellipsis;
     border: none !important;
     background: transparent !important;
+    box-shadow: none !important;
 }
 
 .reader-header-icon {
@@ -945,18 +974,19 @@ body {
     color: var(--color-gold-light);
 }
 
+/* Digital Palm-Leaf Manuscript Canvas */
 .puja-reader,
 .devi-reader,
 .reader {
     width: 100%;
     max-width: 760px;
     margin: 0 auto;
-    padding: 16px 14px 60px;
+    padding: 18px 12px 60px;
     font-family: var(--font-serif);
     color: var(--color-text-primary);
-    background: transparent;
-    border: none;
-    box-shadow: none;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 /* Fallback if #title is inside reader without .reader-header */
@@ -972,58 +1002,64 @@ body {
     margin: 8px auto 20px;
     padding: 0 10px 10px;
     border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
 }
 
-/* 2. Content: Direct on parchment page, NO white box, NO border, NO shadow, NO card */
+/* 2. Content: Direct on warm parchment canvas, NO boxes, NO borders, NO shadows, NO cards */
 #content {
     background: transparent !important;
     border: none !important;
     border-radius: 0 !important;
     box-shadow: none !important;
-    padding: 6px 2px 24px !important;
+    padding: 6px 0 24px !important;
     width: 100%;
 }
 
-/* Sacred Chanting Lines: Left Aligned, Large Font, Comfortable Line Spacing */
+/* Sacred Chanting Lines & Headings: Palm-Leaf Manuscript Flow */
 .puja-section {
     text-align: left !important;
     font-family: var(--font-serif);
     font-size: 1.35rem;
     font-weight: 700;
-    line-height: 1.9;
+    line-height: 2.1;
     color: var(--color-maroon);
-    margin-top: 32px;
+    margin-top: 28px;
     margin-bottom: 14px;
-    padding-left: 12px;
+    padding-left: 10px;
     border-left: 3px solid var(--color-gold);
+    background: transparent !important;
 }
 
+/* Scripture lines & number blocks:
+   - Natural flowing manuscript stanzas
+   - No dashed line separators
+   - No card or box borders
+   - Generous 2.3 line-height preserving upper & lower Vedic swara marks (उदाత్త, అనుదాత్త, స్వరిత)
+   - Zero letter-spacing to prevent Telugu combining vowel & swara character offset */
 .puja-line,
 .reader-line,
 .number-block {
     text-align: left !important;
     font-family: var(--font-serif);
     font-size: clamp(1.2rem, 3.9vw, 1.38rem);
-    line-height: 2.25;
+    line-height: 2.3;
     color: var(--color-text-primary);
     margin: 0 0 16px;
     white-space: pre-wrap;
-    letter-spacing: 0.015em;
+    letter-spacing: normal !important;
     background: transparent !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-top: none !important;
+    border: none !important;
     box-shadow: none !important;
+    padding: 0 !important;
 }
 
 .number-block {
-    padding-bottom: 16px;
-    border-bottom: 1px dashed rgba(198, 146, 52, 0.3) !important;
     margin-bottom: 22px;
 }
 
 .puja-space {
-    height: 18px;
+    height: 16px;
 }
 
 .devi-reader #content div,
@@ -1031,10 +1067,10 @@ body {
     text-align: left !important;
     font-family: var(--font-serif);
     font-size: clamp(1.2rem, 3.9vw, 1.38rem);
-    line-height: 2.25;
+    line-height: 2.3;
     margin-bottom: 16px;
     white-space: pre-wrap;
-    letter-spacing: 0.015em;
+    letter-spacing: normal !important;
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
@@ -1101,11 +1137,6 @@ button:active,
 .reader-bottom-nav button {
     width: 100%;
     max-width: 380px;
-}
-
-/* Remove default br gaps when modernized */
-br + br {
-    display: none;
 }
 
 /* Page bottom spacing to prevent navigation bar overlap */
