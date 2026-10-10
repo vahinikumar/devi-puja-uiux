@@ -1,4 +1,4 @@
-const CACHE_NAME = "devi-veda-v5";
+const CACHE_NAME = "devi-veda-v7";
 
 const APP_FILES = [
     // Root
@@ -124,7 +124,70 @@ const APP_FILES = [
     "bhakti/json/anapoorna.json",
     "bhakti/json/ashtalakshmi.json",
     "bhakti/json/lingashtakam.json",
-    "bhakti/json/mahishasuramardini.json"
+    "bhakti/json/mahishasuramardini.json",
+    // =====================
+    // Root Assets
+    // =====================
+    "assets/devi-veda-icoon.jpg",
+    "assets/devi.jpeg",
+    "assets/icon-192.png",
+    "assets/icon-512.png",
+    "assets/vedapatnam.png",
+
+
+    // =====================
+    // Common Assets
+    // =====================
+    "common/assets/ashtottara_shatanamavali.png",
+    "common/assets/devi_khadgamala.png",
+    "common/assets/lalitha_sahasranamam.png",
+    "common/assets/mantra_pushpam.png",
+    "common/assets/sankalpam.png",
+    "common/assets/shodashopachara_purnakalasam.png",
+
+
+    // =====================
+    // Devi Assets
+    // =====================
+    "devi/assets/annapurna.jpg",
+    "devi/assets/bala.jpg",
+    "devi/assets/durga.jpg",
+    "devi/assets/gaythri.jpg",
+    "devi/assets/lalitha.jpg",
+    "devi/assets/mahachandi.jpg",
+    "devi/assets/mahalakshmi.jpg",
+    "devi/assets/mahishasuramardini.jpg",
+    "devi/assets/rajarajeswari.jpg",
+    "devi/assets/saraswati.jpg",
+
+
+    // =====================
+    // Itihasa Assets
+    // =====================
+    "itihasa/assets/bhagavatam.png",
+    "itihasa/assets/bharatham.png",
+    "itihasa/assets/gita.png",
+    "itihasa/assets/Ramayanam.png",
+    "itihasa/assets/sundrakandha.png",
+
+
+    // =====================
+    // Sukta Assets
+    // =====================
+    "sukta/assets/bhu_suktam.png",
+    "sukta/assets/durga_suktam.png",
+    "sukta/assets/manyu_suktam.png",
+    "sukta/assets/purusha_suktam.png",
+    "sukta/assets/sri_suktam.png",
+
+
+    // =====================
+    // Veda Assets
+    // =====================
+    "veda/assets/atharava_veda.png",
+    "veda/assets/rig_veda.png",
+    "veda/assets/sam_veda.png",
+    "veda/assets/yajur_veda.png"
 ];
 
 

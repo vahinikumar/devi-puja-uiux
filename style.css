@@ -997,28 +997,41 @@ body.devi-menu-page {
    ======================================================== */
 
 /* Minimal Reading Screen Top Header (Digital Palm-Leaf Manuscript Style)
-   Structure: â†    Title    ðŸª”
-   No cards, no boxes, no plaques, no borders around text */
+   Structure: ←    Title
+   Clean, elegant, edge-to-edge top bar with no extra strips, borders, or icons */
+body:has(.reader-header) {
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
 .reader-header {
     width: 100%;
-    min-height: 48px;
-    background: #38080E;
-    border-bottom: 1.5px solid rgba(231, 196, 121, 0.4);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-    display: flex;
+    min-height: 50px;
+    background: #4A0A0A;
+    border-bottom: 2px solid #C8902A;
+    box-shadow: 0 2px 8px rgba(40, 5, 5, 0.25);
+    display: grid;
+    grid-template-columns: 48px 1fr 48px;
     align-items: center;
-    justify-content: space-between;
-    padding: 6px 14px;
+    padding: 0 8px;
     position: sticky;
     top: 0;
     z-index: 100;
+}
+
+.reader-header::after {
+    content: "";
+    width: 48px;
+    height: 1px;
+    display: block;
 }
 
 .reader-back-btn {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    color: var(--color-gold-light) !important;
+    color: #C8902A !important;
     font-size: 1.5rem !important;
     line-height: 1 !important;
     padding: 6px 10px !important;
@@ -1034,18 +1047,17 @@ body.devi-menu-page {
 
 .reader-back-btn:active {
     transform: scale(0.9);
-    color: #FFFFFF !important;
+    color: #FFF4D9 !important;
 }
 
 .reader-header-title {
     font-family: var(--font-serif);
     font-size: clamp(1.1rem, 3.8vw, 1.35rem);
     font-weight: 700;
-    color: #FFF8EB;
+    color: #FFF4D9;
     text-align: center;
     margin: 0;
-    padding: 0 8px;
-    flex: 1;
+    padding: 0 4px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1055,13 +1067,166 @@ body.devi-menu-page {
 }
 
 .reader-header-icon {
-    font-size: 1.15rem;
-    padding: 0 4px;
+    display: none !important;
+}
+
+/* Devi Bhakti Specific Header Color Theme
+   Targeted to pages with .devi-reader or body[data-ashtottara] */
+body:has(.devi-reader) .reader-header,
+body[data-ashtottara="true"] .reader-header {
+    background: #5A1018 !important;
+    border-bottom: 1.5px solid #D9A441 !important;
+    box-shadow: 0 2px 10px rgba(90, 16, 24, 0.35) !important;
+}
+
+body:has(.devi-reader) .reader-header-title,
+body[data-ashtottara="true"] .reader-header-title {
+    color: #FFF4D9 !important;
+}
+
+body:has(.devi-reader) .reader-back-btn,
+body[data-ashtottara="true"] .reader-back-btn {
+    color: #E0B04A !important;
+}
+
+/* Reusable Theme Toggle Button */
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    color: #E0B04A;
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    user-select: none;
-    color: var(--color-gold-light);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    transition: transform 0.15s ease, background-color 0.2s ease;
+    padding: 0;
+    margin: 0;
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(217, 164, 65, 0.15);
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.9);
+}
+
+/* Fixed corner placement for non-reader pages that lack a 3-column header */
+.theme-toggle-fixed {
+    position: fixed;
+    top: 12px;
+    right: 14px;
+    z-index: 1000;
+    background: rgba(40, 5, 5, 0.65);
+    border: 1px solid #D9A441;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+body.dark-mode .theme-toggle-fixed {
+    background: rgba(20, 20, 20, 0.85);
+    border-color: #D9A441;
+}
+
+/* ========================================================
+   GLOBAL DARK MODE SYSTEM (Black/Dark Manuscript Style)
+   ======================================================== */
+body.dark-mode {
+    background-color: #0F0F0F !important;
+    color: #F5E6C8 !important;
+}
+
+body.dark-mode::before {
+    opacity: 0.05 !important;
+}
+
+/* Reading content dark manuscript palette */
+body.dark-mode .puja-reader,
+body.dark-mode .devi-reader,
+body.dark-mode .reader,
+body.dark-mode .reader-content,
+body.dark-mode #content,
+body.dark-mode #content * {
+    color: #F5E6C8 !important;
+}
+
+body.dark-mode .reader-line,
+body.dark-mode .puja-line,
+body.dark-mode .number-block {
+    color: #F5E6C8 !important;
+    background: transparent !important;
+}
+
+/* Headings & accent preservation in dark mode */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode .app-title {
+    color: #FFF4D9 !important;
+}
+
+body.dark-mode .app-subtitle {
+    color: #D4AF37 !important;
+}
+
+body.dark-mode .temple-divider {
+    color: #E0B04A !important;
+}
+
+/* Card components in dark mode */
+body.dark-mode .devi-card,
+body.dark-mode .vedic-card,
+body.dark-mode .gateway-card,
+body.dark-mode .puja-step-card,
+body.dark-mode .sukta-card,
+body.dark-mode .itihasa-card {
+    background: #181414 !important;
+    border-color: #553B18 !important;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.6) !important;
+}
+
+body.dark-mode .devi-card-name,
+body.dark-mode .vedic-card-title,
+body.dark-mode .puja-step-name,
+body.dark-mode .gateway-title {
+    background: #181414 !important;
+    color: #F5E6C8 !important;
+}
+
+body.dark-mode .devi-card-img-wrap,
+body.dark-mode .vedic-card-img-wrap,
+body.dark-mode .puja-step-icon-wrap {
+    background: #120E0E !important;
+}
+
+body.dark-mode .nav-back-arrow {
+    background: #1F1717 !important;
+    border-color: #D9A441 !important;
+    color: #E0B04A !important;
+}
+
+/* Bottom navigation in dark mode */
+body.dark-mode .reader-bottom-nav button {
+    background: #1F1415 !important;
+    color: #FFF4D9 !important;
+    border-color: #D9A441 !important;
+}
+
+body.dark-mode .app-bottom-nav {
+    background: rgba(15, 12, 12, 0.95) !important;
+    border-top-color: #8C6B28 !important;
+}
+
+/* Headers in dark mode: preserve deep rich base */
+body.dark-mode .reader-header {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8) !important;
 }
 
 /* Digital Palm-Leaf Manuscript Canvas */

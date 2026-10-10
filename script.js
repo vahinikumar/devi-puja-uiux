@@ -101,17 +101,18 @@ function createNumberBlocks(content){
         current += (current ? "\n" : "") + text;
 
 
-        // Only separate number marker lines
-        if(
-            /^[౦-౯]+\s*॥$/.test(text) ||
-            /^\|\|$/.test(text)
-        ){
+        // Separate mantra blocks ending with:
+        // 1) Numbering e.g. "|| ౧ ||", "|| ౧౦ ||", "॥ ౧ ॥", or standalone numbers
+        // 2) Normal double danda e.g. "||" or "॥" at the end of the line
+        const isMantraEnd = 
+            /(\|\||॥)\s*[౦-౯]+\s*(\|\||॥)?\s*$/.test(text) ||
+            /^[౦-౯]+\s*(\|\||॥)$/.test(text) ||
+            /(\|\||॥)\s*$/.test(text);
 
+        if(isMantraEnd){
             blocks.push(current.trim());
             current = "";
-
         }
-
     });
 
 
@@ -238,7 +239,64 @@ function filterMantrapushpamContent(content, file){
     }
     return result;
 }
+// Reusable Global Dark Mode System
+function initTheme() {
+    // Exclude Home screen to preserve its approved temple entrance art
+    const isHomePage = document.querySelector(".temple-home-wrapper") !== null;
+    if (isHomePage) return;
+
+    const savedTheme = localStorage.getItem("app_theme") || "light";
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+    } else {
+        document.body.classList.remove("dark-mode");
+    }
+
+    // Mount theme toggle button
+    const readerHeader = document.querySelector(".reader-header");
+    let toggleBtn = document.querySelector(".theme-toggle-btn");
+
+    if (!toggleBtn) {
+        toggleBtn = document.createElement("button");
+        toggleBtn.className = "theme-toggle-btn";
+        toggleBtn.setAttribute("aria-label", "డార్క్ మోడ్ మార్చు");
+        toggleBtn.type = "button";
+
+        if (readerHeader) {
+            // Replace or place in the 3rd column of reader-header
+            const iconSlot = readerHeader.querySelector(".reader-header-icon");
+            if (iconSlot) {
+                iconSlot.style.display = "inline-flex";
+                iconSlot.innerHTML = "";
+                iconSlot.appendChild(toggleBtn);
+            } else {
+                readerHeader.appendChild(toggleBtn);
+            }
+        } else {
+            toggleBtn.classList.add("theme-toggle-fixed");
+            document.body.appendChild(toggleBtn);
+        }
+
+        toggleBtn.addEventListener("click", () => {
+            const isDark = document.body.classList.toggle("dark-mode");
+            const newTheme = isDark ? "dark" : "light";
+            localStorage.setItem("app_theme", newTheme);
+            updateThemeIcon(toggleBtn, newTheme);
+        });
+    }
+
+    const currentTheme = document.body.classList.contains("dark-mode") ? "dark" : "light";
+    updateThemeIcon(toggleBtn, currentTheme);
+}
+
+function updateThemeIcon(btn, theme) {
+    if (!btn) return;
+    btn.textContent = theme === "dark" ? "☀️" : "🌙";
+    btn.setAttribute("title", theme === "dark" ? "లైట్ మోడ్" : "డార్క్ మోడ్");
+}
+
 document.addEventListener("DOMContentLoaded",async()=>{
+    initTheme();
     gateEveningNavigation();
     if(document.body.dataset.ashtottara === "true") loadAshtottara();
     else loadJson();
