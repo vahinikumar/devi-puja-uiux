@@ -592,7 +592,7 @@ h1.t {
     aspect-ratio: 1 / 1.15;
     position: relative;
     overflow: hidden;
-    background: #2a080d;
+    background: var(--color-cream-bg);
     border-bottom: 2px solid var(--color-gold-light);
     display: flex;
     align-items: center;
