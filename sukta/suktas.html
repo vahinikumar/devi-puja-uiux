@@ -7,7 +7,11 @@
 <link rel="stylesheet" href="../style.css">
 <script src="../script.js" defer></script>
 </head>
-<body>
+<body class="has-bottom-nav">
+
+    <div class="top-nav-bar">
+        <button class="nav-back-arrow" onclick="window.location.href='../veda/vedapatnam.html'" aria-label="వెనుకకు">←</button>
+    </div>
 
     <header class="app-header">
         <h1 class="app-title">పవిత్ర వేద సూక్తములు</h1>
@@ -56,6 +60,18 @@
             <h2 class="vedic-card-title">దుర్గా సూక్తం</h2>
         </article>
     </main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="app-bottom-nav" aria-label="ముఖ్య నావిగేషన్">
+        <button class="bottom-nav-item" onclick="window.location.href='../index.html'" aria-label="హోమ్">
+            <span class="bottom-nav-icon">🏠</span>
+            <span class="bottom-nav-label">హోమ్</span>
+        </button>
+        <button class="bottom-nav-item active" onclick="window.location.href='../veda/vedapatnam.html'" aria-label="వేదపఠనం">
+            <span class="bottom-nav-icon">🪔</span>
+            <span class="bottom-nav-label">వేదపఠనం</span>
+        </button>
+    </nav>
 
 </body>
 </html>

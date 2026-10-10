@@ -8,18 +8,43 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
-<body>
+<body class="has-bottom-nav">
 
-    <!-- Header Section (Matches Slide 01 Reference) -->
-    <header class="app-header">
+    <!-- Header Section (Matches Slide 01 Reference Exactly) -->
+    <header class="home-temple-header">
+        <button class="hamburger-btn" onclick="toggleDrawer(true)" aria-label="మెనూ">☰</button>
         <button id="installBtn" style="display:none;">📲 యాప్ ఇన్‌స్టాల్ చేయండి</button>
-        <div class="app-logo-wrap">
-            <img src="assets/devi-veda-icoon.jpg" alt="దేవి భక్తి & వేదపఠనం" class="app-logo">
+        <div class="temple-title-panel">
+            <h1 class="home-title">దేవి భక్తి & వేదపఠనం</h1>
+            <p class="home-subtitle">భక్తి • జ్ఞానం • శాంతి</p>
         </div>
-        <h1 class="app-title">దేవి భక్తి & వేదపఠనం</h1>
-        <p class="app-subtitle">భక్తి • జ్ఞానం • శాంతి</p>
-        <div class="temple-divider">॥ ఓం శ్రీ మాత్రే నమః ॥</div>
     </header>
+
+    <!-- Side Drawer (In-page only) -->
+    <div id="drawerBackdrop" class="drawer-backdrop" onclick="toggleDrawer(false)"></div>
+    <aside id="sideDrawer" class="side-drawer" aria-label="సైడ్ మెనూ">
+        <div class="drawer-header">
+            <span class="drawer-title">॥ శ్రీరస్తు ॥</span>
+            <button class="drawer-close-btn" onclick="toggleDrawer(false)" aria-label="మూసివేయి">✕</button>
+        </div>
+        <ul class="drawer-menu-list">
+            <li>
+                <button class="drawer-menu-item" onclick="toggleDrawer(false); window.location.href='index.html'">
+                    <span>🏠</span> హోమ్
+                </button>
+            </li>
+            <li>
+                <button class="drawer-menu-item" onclick="toggleDrawer(false); window.location.href='devi/index.html'">
+                    <span>🌺</span> దేవి భక్తి
+                </button>
+            </li>
+            <li>
+                <button class="drawer-menu-item" onclick="toggleDrawer(false); window.location.href='veda/vedapatnam.html'">
+                    <span>🪔</span> వేదపఠనం
+                </button>
+            </li>
+        </ul>
+    </aside>
 
     <!-- Main Navigation Container -->
     <main class="container">
@@ -60,6 +85,34 @@
         </section>
 
     </main>
+
+    <!-- Bottom Navigation Bar (Slide 01 Reference) -->
+    <nav class="app-bottom-nav" aria-label="ముఖ్య నావిగేషన్">
+        <button class="bottom-nav-item active" onclick="window.location.href='index.html'" aria-label="హోమ్">
+            <span class="bottom-nav-icon">🏠</span>
+            <span class="bottom-nav-label">హోమ్</span>
+        </button>
+        <button class="bottom-nav-item" onclick="window.location.href='veda/vedapatnam.html'" aria-label="వేదపఠనం">
+            <span class="bottom-nav-icon">🪔</span>
+            <span class="bottom-nav-label">వేదపఠనం</span>
+        </button>
+    </nav>
+
+    <script>
+        function toggleDrawer(open) {
+            const drawer = document.getElementById('sideDrawer');
+            const backdrop = document.getElementById('drawerBackdrop');
+            if (drawer && backdrop) {
+                if (open) {
+                    drawer.classList.add('open');
+                    backdrop.classList.add('open');
+                } else {
+                    drawer.classList.remove('open');
+                    backdrop.classList.remove('open');
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
