@@ -4,7 +4,20 @@ function setJsonAndOpen(jsonFile, page) {
     localStorage.setItem("jsonFile", jsonFile);
     openPage(page);
 }
-function sankalpam(){ openPage("../common/sankalpam.html"); }
+function isSankalpamTime(){
+    const h = new Date().getHours();
+    return h >= 5 && h < 8;
+}
+function applySankalpamVisibility(){
+    const cards = document.querySelectorAll("[data-sankalpam-only]");
+    const visible = isSankalpamTime();
+    cards.forEach(card => {
+        card.hidden = !visible;
+    });
+}
+function sankalpam(){
+    openPage("../common/sankalpam.html");
+}
 function shodashopachara(){ openPage("../common/shodashopachara.html"); }
 function lalithaSahasranama(){ openPage("../common/lalitha.html"); }
 function ashtottharaShatnama(){ openPage("../devi/ashtottara.html"); }
@@ -158,6 +171,15 @@ async function loadJson(){
         const data=await response.json();
         titleEl.textContent=data.title || "";
         contentEl.replaceChildren();
+
+        if(file.includes("Sankalpam") && !isSankalpamTime()){
+            const msgBox = document.createElement("div");
+            msgBox.className = "puja-line";
+            msgBox.textContent = "సంకల్ప పఠనం ఉదయం 5:00 నుండి 8:00 గంటల వరకు మాత్రమే అందుబాటులో ఉంటుంది.";
+            contentEl.appendChild(msgBox);
+            return;
+        }
+
         const content=filterMantrapushpamContent(data.content || [], file);
         let contentToRender = content;
         if(document.body.dataset.readerType === "number-block"){
@@ -323,9 +345,61 @@ function updateThemeIcon(btn, theme) {
     btn.setAttribute("title", theme === "dark" ? "లైట్ మోడ్" : "డార్క్ మోడ్");
 }
 
+const dailyDeviMap = {
+    "2026-10-11": { key: "bala", name: "శ్రీ బాలా త్రిపుర సుందరీ దేవి", img: "devi/assets/bala.jpg" },
+    "2026-10-12": { key: "gaythri", name: "శ్రీ గాయత్రీ దేవి", img: "devi/assets/gaythri.jpg" },
+    "2026-10-13": { key: "annapurna", name: "శ్రీ అన్నపూర్ణా దేవి", img: "devi/assets/annapurna.jpg" },
+    "2026-10-14": { key: "mahachandi", name: "శ్రీ మహాలక్ష్మి / మహా చండీ దేవి", img: "devi/assets/mahachandi.jpg" },
+    "2026-10-15": { key: "lalitha", name: "శ్రీ లలితా త్రిపుర సుందరీ దేవి", img: "devi/assets/lalitha.jpg" },
+    "2026-10-16": { key: "saraswati", name: "శ్రీ సరస్వతీ దేవి", img: "devi/assets/saraswati.jpg" },
+    "2026-10-17": { key: "mahalakshmi", name: "శ్రీ మహాలక్ష్మీ దేవి", img: "devi/assets/mahalakshmi.jpg" },
+    "2026-10-18": { key: "durga", name: "శ్రీ దుర్గా దేవి", img: "devi/assets/durga.jpg" },
+    "2026-10-19": { key: "mahishasuramardini", name: "శ్రీ మహిషాసుర మర్దినీ దేవి", img: "devi/assets/mahishasuramardini.jpg" },
+    "2026-10-20": { key: "rajarajeswari", name: "శ్రీ రాజరాజేశ్వరీ దేవి", img: "devi/assets/rajarajeswari.jpg" }
+};
+
+function initDailyDeviWidget() {
+    const widget = document.getElementById("dailyDeviWidget");
+    if (!widget) return;
+    const now = new Date();
+    const dateKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+    const todayDevi = dailyDeviMap[dateKey];
+    if (!todayDevi) {
+        widget.style.display = "none";
+        return;
+    }
+
+    widget.innerHTML = `
+        <div class="daily-devi-badge">✨ నేటి అలంకారం ✨</div>
+        <div class="daily-devi-content">
+            <img src="${todayDevi.img}" alt="${todayDevi.name}" class="daily-devi-img">
+            <div class="daily-devi-info">
+                <h2 class="daily-devi-title">${todayDevi.name}</h2>
+                <p class="daily-devi-sub">పూజా విధానం మరియు స్తోత్రములు →</p>
+            </div>
+        </div>
+    `;
+    widget.onclick = () => openTodayDevi(todayDevi.key);
+    widget.onkeydown = (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openTodayDevi(todayDevi.key);
+        }
+    };
+    widget.style.display = "block";
+}
+
+function openTodayDevi(key) {
+    localStorage.setItem("selectedDevi", key);
+    localStorage.setItem("alankaram", key);
+    window.location.href = "devi/menu.html";
+}
+
 document.addEventListener("DOMContentLoaded",async()=>{
     initTheme();
     gateEveningNavigation();
+    applySankalpamVisibility();
+    initDailyDeviWidget();
     if(document.body.dataset.ashtottara === "true") loadAshtottara();
     else loadJson();
     if(document.body.dataset.deviDhyanam === "true") loadDeviDhyanam();

@@ -1469,3 +1469,67 @@ body.has-bottom-nav {
 .bottom-nav-item.active .bottom-nav-icon {
     filter: drop-shadow(0 0 6px rgba(231, 196, 121, 0.9));
 }
+
+/* Daily Devi Alankaram Widget */
+.daily-devi-card {
+    background: linear-gradient(135deg, #FFF9EB 0%, #FFF3D6 100%);
+    border: 2px solid var(--color-gold);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(107, 20, 34, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+}
+
+.daily-devi-card:hover,
+.daily-devi-card:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(107, 20, 34, 0.14);
+    outline: none;
+}
+
+.daily-devi-badge {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-maroon);
+    text-align: center;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.daily-devi-content {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.daily-devi-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-gold);
+    flex-shrink: 0;
+}
+
+.daily-devi-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.daily-devi-title {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-maroon);
+    margin: 0;
+    line-height: 1.35;
+}
+
+.daily-devi-sub {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+}
