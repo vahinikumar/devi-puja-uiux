@@ -189,23 +189,29 @@ body {
     transform: scale(0.96);
 }
 
-/* Gateway Hero Cards (Home Screen) */
+/* Gateway Hero Cards (Home Screen - Slide 01 Reference) */
 .gateway-card {
-    background: var(--color-card-bg);
+    background: #FFFDF8;
     border-radius: var(--radius-lg);
     overflow: hidden;
-    border: 1px solid var(--color-border-gold);
+    border: 1.5px solid var(--color-border-gold);
     box-shadow: var(--shadow-card);
     cursor: pointer;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     text-align: left;
     position: relative;
     user-select: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px;
+    gap: 14px;
 }
 
 .gateway-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 28px rgba(62, 12, 19, 0.12), 0 3px 8px rgba(198, 146, 52, 0.2);
+    box-shadow: 0 10px 26px rgba(62, 12, 19, 0.12), 0 3px 10px rgba(198, 146, 52, 0.25);
+    border-color: var(--color-gold);
 }
 
 .gateway-card:active {
@@ -213,80 +219,90 @@ body {
 }
 
 .gateway-img-wrap {
-    width: 100%;
-    min-height: 200px;
-    max-height: 260px;
+    width: 44%;
+    max-width: 170px;
+    aspect-ratio: 1 / 1.15;
     position: relative;
     overflow: hidden;
-    background: #1c0609;
+    background: #2a080d;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--color-gold-light);
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 4px;
+    flex-shrink: 0;
 }
 
 .gateway-img {
     width: 100%;
     height: 100%;
-    max-height: 260px;
     object-fit: contain;
     transition: transform 0.4s ease;
     display: block;
 }
 
 .gateway-card:hover .gateway-img {
-    transform: scale(1.02);
-}
-
-.gateway-gradient-overlay {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(62, 12, 19, 0.35) 100%);
+    transform: scale(1.03);
 }
 
 .gateway-info {
-    padding: 16px 20px 20px;
-    background: #fff;
+    flex: 1;
+    padding: 4px 6px;
+    background: transparent;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-}
-
-.gateway-badge {
-    align-self: flex-start;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-saffron);
-    background: #FDF1EA;
-    padding: 3px 10px;
-    border-radius: var(--radius-pill);
-    margin-bottom: 2px;
+    justify-content: center;
+    gap: 6px;
 }
 
 .gateway-title {
     font-family: var(--font-serif);
-    font-size: 1.35rem;
-    font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 800;
     color: var(--color-maroon);
-    line-height: 1.3;
+    line-height: 1.25;
 }
 
-.gateway-desc {
-    font-size: 0.9rem;
+.gateway-bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 2px 0 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.gateway-bullet-list li {
+    font-size: 0.86rem;
     color: var(--color-text-secondary);
-    line-height: 1.45;
+    line-height: 1.35;
+    font-weight: 500;
+    position: relative;
 }
 
-.gateway-action {
+.gateway-cta-wrap {
+    margin-top: 4px;
+}
+
+.gateway-pill-btn {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    margin-top: 8px;
-    color: var(--color-gold);
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-maroon), var(--color-maroon-dark));
+    color: #FFFFFF;
+    font-size: 0.85rem;
     font-weight: 700;
-    font-size: 0.95rem;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 2px 6px rgba(107, 20, 34, 0.25);
+    border: 1px solid var(--color-gold);
+    transition: all 0.2s ease;
+}
+
+.gateway-card:hover .gateway-pill-btn {
+    background: linear-gradient(135deg, var(--color-maroon-light), var(--color-maroon));
+    box-shadow: var(--shadow-gold);
 }
 
 /* Devi Gallery Grid (Screen 2 - Approved Reference) */
@@ -543,7 +559,7 @@ body {
 .vedic-card-img-wrap {
     width: 100%;
     height: 160px;
-    background: #1c0609;
+    background: var(--color-cream-bg);
     border-bottom: 2px solid var(--color-gold-light);
     overflow: hidden;
     display: flex;

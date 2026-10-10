@@ -4,51 +4,58 @@
     <link rel="manifest" href="manifest.json">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>శ్రీ దేవీ స్తోత్ర & వేద పఠనం</title>
+    <title>దేవి భక్తి & వేదపఠనం</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
 
-    <!-- Header Section -->
+    <!-- Header Section (Matches Slide 01 Reference) -->
     <header class="app-header">
         <button id="installBtn" style="display:none;">📲 యాప్ ఇన్‌స్టాల్ చేయండి</button>
         <div class="app-logo-wrap">
-            <img src="assets/devi-veda-icoon.jpg" alt="శ్రీ దేవీ వేద చిహ్నం" class="app-logo">
+            <img src="assets/devi-veda-icoon.jpg" alt="దేవి భక్తి & వేదపఠనం" class="app-logo">
         </div>
-        <h1 class="app-title">శ్రీ దేవీ స్తోత్ర & వేద పఠనం</h1>
-        <p class="app-subtitle">దైవిక ఆధ్యాత్మిక నిలయం & వేద విజ్ఞాన భాండాగారం</p>
+        <h1 class="app-title">దేవి భక్తి & వేదపఠనం</h1>
+        <p class="app-subtitle">భక్తి • జ్ఞానం • శాంతి</p>
         <div class="temple-divider">॥ ఓం శ్రీ మాత్రే నమః ॥</div>
     </header>
 
     <!-- Main Navigation Container -->
     <main class="container">
         
-        <!-- Card 1: Devi Bhakti -->
+        <!-- Card 1: Devi Bhakti (Horizontal Split as in Slide 01) -->
         <section class="gateway-card" onclick="window.open('devi/index.html','_blank')" role="button" tabindex="0">
             <div class="gateway-img-wrap">
-                <img src="assets/devi.jpeg" alt="దేవీ భక్తి" class="gateway-img">
-                <div class="gateway-gradient-overlay"></div>
+                <img src="assets/devi.jpeg" alt="దేవి భక్తి" class="gateway-img">
             </div>
             <div class="gateway-info">
-                <span class="gateway-badge">దేవీ భక్తి మార్గం</span>
-                <h2 class="gateway-title">శ్రీ దేవీ వైభవం & పూజా విధానం</h2>
-                <p class="gateway-desc">దశ మహాదేవతల దర్శనం, నిత్య షోడశోపచార పూజ, సహస్రనామ మరియు ఖడ్గమాలా స్తోత్రాలు.</p>
-                <div class="gateway-action">దర్శించండి & పూజ ప్రారంభించండి →</div>
+                <h2 class="gateway-title">దేవి భక్తి</h2>
+                <ul class="gateway-bullet-list">
+                    <li>దశ మహావిద్యా ఆరాధన</li>
+                    <li>స్తోత్ర పాఠాలు</li>
+                    <li>పూజా విధులు</li>
+                </ul>
+                <div class="gateway-cta-wrap">
+                    <span class="gateway-pill-btn">ప్రవేశించండి ›</span>
+                </div>
             </div>
         </section>
 
-        <!-- Card 2: Vedapatnam -->
+        <!-- Card 2: Vedapatnam (Horizontal Split as in Slide 01) -->
         <section class="gateway-card" data-evening-only onclick="window.open('veda/vedapatnam.html','_blank')" role="button" tabindex="0">
             <div class="gateway-img-wrap">
                 <img src="assets/vedapatnam.png" alt="వేదపఠనం" class="gateway-img">
-                <div class="gateway-gradient-overlay"></div>
             </div>
             <div class="gateway-info">
-                <span class="gateway-badge">వేద గ్రంథాలయం</span>
-                <h2 class="gateway-title">వేదపఠనం & పవిత్ర గ్రంథాలు</h2>
-                <p class="gateway-desc">పంచ సూక్తాలు, చతుర్వేద మంత్రములు, రామాయణ, భారత, భాగవత, భగవద్గీతా శ్లోక పఠనం.</p>
-                <div class="gateway-action">పఠనం ప్రారంభించండి →</div>
+                <h2 class="gateway-title">వేదపఠనం</h2>
+                <ul class="gateway-bullet-list">
+                    <li>సూక్తులు • వేద మంత్రాలు</li>
+                    <li>పారాయణం • అర్థం</li>
+                </ul>
+                <div class="gateway-cta-wrap">
+                    <span class="gateway-pill-btn">ప్రవేశించండి ›</span>
+                </div>
             </div>
         </section>
 
