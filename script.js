@@ -6,7 +6,7 @@ function setJsonAndOpen(jsonFile, page) {
 }
 function isSankalpamTime(){
     const h = new Date().getHours();
-    return h >= 5 && h < 8;
+    return (h >= 5 && h < 8) || isEveningFlow();
 }
 function applySankalpamVisibility(){
     const cards = document.querySelectorAll("[data-sankalpam-only]");
@@ -175,7 +175,7 @@ async function loadJson(){
         if(file.includes("Sankalpam") && !isSankalpamTime()){
             const msgBox = document.createElement("div");
             msgBox.className = "puja-line";
-            msgBox.textContent = "సంకల్ప పఠనం ఉదయం 5:00 నుండి 8:00 గంటల వరకు మాత్రమే అందుబాటులో ఉంటుంది.";
+            msgBox.textContent = "సంకల్ప పఠనం ఉదయం 5:00 నుండి 8:00 గంటల వరకు మరియు సాయంత్రం వేళల్లో మాత్రమే అందుబాటులో ఉంటుంది.";
             contentEl.appendChild(msgBox);
             return;
         }
