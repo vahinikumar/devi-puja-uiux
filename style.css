@@ -1321,6 +1321,13 @@ body.dark-mode .reader-header {
     height: 16px;
 }
 
+/* Subtle Temple-Gold Dotted Underline for Sankalpam Targets */
+.sankalpam-dotted {
+    text-decoration: underline dotted #7A1726 2.5px;
+    text-underline-offset: 6px;
+    text-decoration-skip-ink: none;
+}
+
 .devi-reader #content div,
 .reader #content div {
     text-align: left !important;

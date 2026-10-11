@@ -67,14 +67,14 @@ function applySankalpamDynamic(text){
         "2026-10-20":"దశమి",
         "2026-10-21":"దశమి"
     };
-    const varaData=[
-        "భాను వాసరే",
-        "ఇందూ వాసరే",
-        "భౌమ వాసరే",
-        "సౌమ్య వాసరే",
-        "బృహస్పతి వాసరే",
-        "భృగు వాసరే",
-        "స్థిర వాసరే"
+    const varaPrefixes = [
+        "భాను",
+        "ఇందూ",
+        "భౌమ",
+        "సౌమ్య",
+        "బృహస్పతి",
+        "భృగు",
+        "స్థిర"
     ];
     const now=new Date();
     const date =
@@ -82,11 +82,27 @@ function applySankalpamDynamic(text){
         String(now.getMonth()+1).padStart(2,"0")+"-"+
         String(now.getDate()).padStart(2,"0");
     const tithi=tithiData[date] || "……";
-    const vara=varaData[now.getDay()];
+    const dayPrefix=varaPrefixes[now.getDay()];
     text=text.replace("(*౬)", "");
     text=text.replace("(*౭)", "");
-    text=text.replace("…… తిథౌ", tithi + " తిథౌ");
-    text=text.replace("…… వాసరే", vara);
+    text=text.replace("…… తిథౌ", `<span class="sankalpam-dotted">${tithi}</span> తిథౌ`);
+    text=text.replace("…… వాసరే", `<span class="sankalpam-dotted">${dayPrefix}</span> వాసరే`);
+
+    // Target 1: "శ్రీ పరాభవ"
+    text=text.replace("శ్రీ పరాభవ", '<span class="sankalpam-dotted">శ్రీ పరాభవ</span>');
+
+    // Target 2, 3, 4, 5 in line: "దక్షిణ అయనే శరద్ ఋతౌ ఆశ్వీయుజ మాసే శుక్ల పక్షే"
+    text=text.replace("దక్షిణ అయనే", '<span class="sankalpam-dotted">దక్షిణ</span> అయనే');
+    text=text.replace("శరద్ ఋతౌ", '<span class="sankalpam-dotted">శరద్</span> ఋతౌ');
+    text=text.replace(/ఆశ్వ[ీి]?యుజ మాసే/, match => {
+        const word = match.replace(/\s*మాసే/, "");
+        return `<span class="sankalpam-dotted">${word}</span> మాసే`;
+    });
+    text=text.replace("శుక్ల పక్షే", '<span class="sankalpam-dotted">శుక్ల</span> పక్షే');
+
+    // Target 6 & 7: First 2 occurrences of "శుభ" in "శుభ నక్షత్రే శుభ యోగే శుభ కరణే"
+    text=text.replace("శుభ నక్షత్రే శుభ యోగే", '<span class="sankalpam-dotted">శుభ</span> నక్షత్రే <span class="sankalpam-dotted">శుభ</span> యోగే');
+
     return text;
 }
 function createNumberBlocks(content){
