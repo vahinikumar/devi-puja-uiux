@@ -1,4 +1,4 @@
-const CACHE_NAME = "devi-veda-v10";
+const CACHE_NAME = "devi-veda-v11";
 
 const APP_FILES = [
     // Root
@@ -143,6 +143,7 @@ const APP_FILES = [
     "common/assets/ashtottara_shatanamavali.png",
     "common/assets/devi_khadgamala.png",
     "common/assets/lalitha_sahasranamam.png",
+    "common/assets/Mangalavadhyalu.png",
     "common/assets/mantra_pushpam.png",
     "common/assets/sankalpam.png",
     "common/assets/shodashopachara_purnakalasam.png",
@@ -218,25 +219,74 @@ self.addEventListener("activate", event => {
 });
 
 self.addEventListener("fetch", event => {
+    const url = event.request.url;
+
+    // Handle audio range requests for offline playback
+    if (url.includes("Mangalavadhyalu.mp3")) {
+        event.respondWith(
+            caches.open(CACHE_NAME).then(async cache => {
+                // Find cached response matching the base URL (ignoring Range header during lookup)
+                let response = await cache.match("Mangalavadhyalu.mp3");
+                if (!response) {
+                    try {
+                        response = await fetch(event.request);
+                        return response;
+                    } catch (e) {
+                        return new Response("Audio not available offline", { status: 503 });
+                    }
+                }
+
+                const rangeHeader = event.request.headers.get("range");
+                if (!rangeHeader) {
+                    return response;
+                }
+
+                const arrayBuffer = await response.arrayBuffer();
+                const totalLength = arrayBuffer.byteLength;
+
+                // Parse Range header e.g. "bytes=0-", "bytes=100-500"
+                const parts = rangeHeader.replace(/bytes=/, "").split("-");
+                const start = parseInt(parts[0], 10) || 0;
+                const end = parts[1] ? parseInt(parts[1], 10) : totalLength - 1;
+
+                if (start >= totalLength || end >= totalLength) {
+                    return new Response(null, {
+                        status: 416,
+                        headers: {
+                            "Content-Range": `bytes */${totalLength}`
+                        }
+                    });
+                }
+
+                const slicedBuffer = arrayBuffer.slice(start, end + 1);
+
+                return new Response(slicedBuffer, {
+                    status: 206,
+                    statusText: "Partial Content",
+                    headers: {
+                        "Content-Type": "audio/mpeg",
+                        "Content-Range": `bytes ${start}-${end}/${totalLength}`,
+                        "Content-Length": slicedBuffer.byteLength,
+                        "Accept-Ranges": "bytes",
+                        "Cache-Control": "public, max-age=31536000"
+                    }
+                });
+            })
+        );
+        return;
+    }
 
     event.respondWith(
-
         caches.match(event.request)
         .then(response => {
-
             if(response){
                 return response;
             }
 
             return fetch(event.request)
             .catch(() => {
-
                 return caches.match("index.html");
-
             });
-
         })
-
     );
-
 });
