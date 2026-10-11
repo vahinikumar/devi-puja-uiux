@@ -196,6 +196,7 @@ const APP_FILES = [
 
 // Install
 self.addEventListener("install", event => {
+    self.skipWaiting();
     event.waitUntil(
         caches.open(CACHE_NAME)
         .then(cache => {
@@ -214,7 +215,7 @@ self.addEventListener("activate", event => {
                 .filter(key => key !== CACHE_NAME)
                 .map(key => caches.delete(key))
             );
-        })
+        }).then(() => self.clients.claim())
     );
 });
 

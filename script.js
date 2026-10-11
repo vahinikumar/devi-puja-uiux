@@ -405,7 +405,11 @@ document.addEventListener("DOMContentLoaded",async()=>{
     if(document.body.dataset.deviDhyanam === "true") loadDeviDhyanam();
 });
 if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js")
+    const scriptEl = document.currentScript || document.querySelector('script[src*="script.js"]');
+    const swUrl = scriptEl ? new URL("service-worker.js", scriptEl.src).href : "service-worker.js";
+    const swScope = scriptEl ? new URL("./", scriptEl.src).pathname : "./";
+
+    navigator.serviceWorker.register(swUrl, { scope: swScope })
     .then(() => {
         console.log("Service Worker registered");
     })
