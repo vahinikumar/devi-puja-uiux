@@ -57,14 +57,29 @@ function bhagavadgita(){ setJsonAndOpen("json/bhagavadgita.json","bhagavadgita.h
 function sundrakanda(){ setJsonAndOpen("json/sundrakanda.json","sundrakanda.html"); }
 
 function bhaktiGeetham(){
-    const alankaram = localStorage.getItem("alankaram");
+    const alankaram = localStorage.getItem("alankaram") || localStorage.getItem("selectedDevi");
     const map = {
-      annapurna: "anapoorna.html",
-      lalitha: "lingashtakam.html",
-      mahalakshmi: "ashtalakshmi.html",
-      mahishasuramardini: "mahishasuramardini.html"
+        annapurna: "anapoorna.html",
+        lalitha: "lingashtakam.html",
+        mahalakshmi: "ashtalakshmi.html",
+        mahishasuramardini: "mahishasuramardini.html"
     };
-    openPage(map[alankaram] || "normal.html");
+    const targetFile = map[alankaram] || "normal.html";
+    let targetPath;
+    if (window.location.pathname.includes("/bhakti/")) {
+        targetPath = targetFile;
+    } else if (
+        window.location.pathname.includes("/veda/") ||
+        window.location.pathname.includes("/itihasa/") ||
+        window.location.pathname.includes("/devi/") ||
+        window.location.pathname.includes("/common/") ||
+        window.location.pathname.includes("/sukta/")
+    ) {
+        targetPath = `../bhakti/${targetFile}`;
+    } else {
+        targetPath = `bhakti/${targetFile}`;
+    }
+    openPage(targetPath);
 }
 function applySankalpamDynamic(text){
     const tithiData = {

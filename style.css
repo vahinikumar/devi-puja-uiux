@@ -1010,7 +1010,7 @@ body:has(.reader) {
     padding-top: 0 !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
-    background-color: #FAF9F6 !important;
+    background-color: #FFFFFF !important;
 }
 
 .reader-header {
@@ -1543,4 +1543,25 @@ body.has-bottom-nav {
     font-size: 0.85rem;
     color: var(--color-text-secondary);
     margin-top: 4px;
+}
+/* Pure white reading page */
+body:has(.reader-header)::before,
+body:has(.devi-reader)::before,
+body:has(.puja-reader)::before,
+body:has(.reader)::before {
+    display: none !important;
+}
+
+body:has(.reader-header),
+body:has(.devi-reader),
+body:has(.puja-reader),
+body:has(.reader),
+.puja-reader,
+.devi-reader,
+.reader,
+.reader-content,
+#content {
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    background-image: none !important;
 }
