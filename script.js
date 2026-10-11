@@ -211,9 +211,12 @@ async function loadJson(){
             if(document.body.dataset.readerType === "number-block"){
                 element.className = "number-block";
             }
-        
             else{
                 element.className = "puja-line";
+                const trimmed = text.trim();
+                if(trimmed.endsWith("||") || trimmed.endsWith("॥")){
+                    element.classList.add("puja-stanza-end");
+                }
             }
        }
         element.innerHTML = text.trim().replace(/\n/g,"<br>");
