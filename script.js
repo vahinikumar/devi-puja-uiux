@@ -9,6 +9,14 @@ function shodashopachara(){ openPage("../common/shodashopachara.html"); }
 function lalithaSahasranama(){ openPage("../common/lalitha.html"); }
 function ashtottharaShatnama(){ openPage("../devi/ashtottara.html"); }
 function deviKhadgamaal(){ openPage("../common/khadgamala.html"); }
+function mangalavadhyalu(){ openPage("../common/mangalavadhyalu.html"); }
+function goBackFromMangalavadhyalu(){
+    if(isEveningFlow()){
+        window.location.href = "../devi/ashtottara.html";
+    } else {
+        window.location.href = "khadgamala.html";
+    }
+}
 function mantraPushpam(){ openPage("../common/mantrapushpam.html"); }
 
 function selectDevi(devi){
@@ -215,8 +223,12 @@ function loadAshtottara(){
 }
 function isEveningFlow(){ const h=new Date().getHours(); return h>=18 || h<6; }
 function gateEveningNavigation(){
+    const evening = isEveningFlow();
     document.querySelectorAll("[data-evening-only]").forEach(el=>{
-        if(!isEveningFlow()) el.hidden=true;
+        if(!evening) el.hidden = true;
+    });
+    document.querySelectorAll("[data-morning-only]").forEach(el=>{
+        if(evening) el.hidden = true;
     });
 }
 function filterMantrapushpamContent(content, file){

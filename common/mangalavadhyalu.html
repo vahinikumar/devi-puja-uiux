@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>మంగళవాద్యాలు</title>
+<link rel="stylesheet" href="../style.css">
+<script src="../script.js" defer></script>
+<style>
+.audio-card {
+    background: #FFF9EE;
+    border: 2px solid var(--color-gold);
+    outline: 1px solid rgba(200, 144, 42, 0.45);
+    outline-offset: -5px;
+    border-radius: 18px;
+    padding: 28px 18px;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(74, 13, 13, 0.12), 0 2px 8px rgba(200, 144, 42, 0.15);
+    max-width: 500px;
+}
+body.dark-mode .audio-card {
+    background: #181414 !important;
+    border-color: #553B18 !important;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.6) !important;
+}
+.audio-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+    margin-bottom: 12px;
+    display: inline-block;
+}
+.audio-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--color-maroon);
+    margin-bottom: 8px;
+}
+body.dark-mode .audio-card-title {
+    color: #FFF4D9 !important;
+}
+.audio-card-desc {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 22px;
+    line-height: 1.6;
+}
+body.dark-mode .audio-card-desc {
+    color: #F5E6C8 !important;
+}
+.audio-player-wrap {
+    width: 100%;
+    margin: 8px 0;
+    display: flex;
+    justify-content: center;
+}
+.audio-player-wrap audio {
+    width: 100%;
+    max-width: 420px;
+    height: 48px;
+    border-radius: 30px;
+    outline: none;
+}
+</style>
+</head>
+<body>
+
+    <header class="reader-header">
+        <button class="reader-back-btn" onclick="goBackFromMangalavadhyalu()" aria-label="వెనుకకు">←</button>
+        <h1 id="title" class="reader-header-title">మంగళవాద్యాలు</h1>
+        <span class="reader-header-icon" aria-hidden="true">🪔</span>
+    </header>
+
+    <div class="puja-reader">
+        <div class="audio-card">
+            <span class="audio-icon" aria-hidden="true">🪔</span>
+            <h2 class="audio-card-title">మంగళవాద్యాలు</h2>
+            <p class="audio-card-desc">పూజా కార్యక్రమం అనంతరం మంగళవాద్యాల శ్రవణం</p>
+
+            <div class="audio-player-wrap">
+                <audio controls preload="metadata">
+                    <source src="../Mangalavadhyalu.mp3" type="audio/mpeg">
+                    మీ బ్రౌజర్ ఆడియో ప్లేయర్‌ను సపోర్ట్ చేయదు.
+                </audio>
+            </div>
+        </div>
+
+        <nav class="reader-bottom-nav">
+            <button class="btn-gold" onclick="window.location.href='mantrapushpam.html'">
+                తదుపరి → మంత్ర పుష్పం
+            </button>
+        </nav>
+    </div>
+
+</body>
+</html>

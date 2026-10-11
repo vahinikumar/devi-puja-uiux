@@ -1,4 +1,4 @@
-const CACHE_NAME = "devi-veda-v9";
+const CACHE_NAME = "devi-veda-v10";
 
 const APP_FILES = [
     // Root
@@ -6,6 +6,7 @@ const APP_FILES = [
     "style.css",
     "script.js",
     "manifest.json",
+    "Mangalavadhyalu.mp3",
 
     // =====================
     // Common HTML
@@ -14,6 +15,7 @@ const APP_FILES = [
     "common/shodashopachara.html",
     "common/lalitha.html",
     "common/khadgamala.html",
+    "common/mangalavadhyalu.html",
     "common/mantrapushpam.html",
 
     // Common JSON
