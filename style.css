@@ -1003,11 +1003,14 @@ body.devi-menu-page {
 /* Minimal Reading Screen Top Header (Digital Palm-Leaf Manuscript Style)
    Structure: ←    Title
    Clean, elegant, edge-to-edge top bar with no extra strips, borders, or icons */
-body:has(.reader-header) {
+body:has(.reader-header),
+body:has(.puja-reader),
+body:has(.devi-reader),
+body:has(.reader) {
     padding-top: 0 !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
-    background-color: #FAF8F5 !important;
+    background-color: #FAF9F6 !important;
 }
 
 .reader-header {
@@ -1280,15 +1283,19 @@ body.dark-mode .reader-header {
 .puja-section {
     text-align: left !important;
     font-family: var(--font-serif);
-    font-size: 1.2rem;
+    font-size: clamp(1.2rem, 3.8vw, 1.35rem);
     font-weight: 700;
-    line-height: 1.8;
-    color: #7A1726;
-    margin-top: 22px;
+    line-height: 1.6;
+    color: #111111 !important;
+    margin-top: 26px;
     margin-bottom: 8px;
     padding-left: 0;
     border-left: none !important;
     background: transparent !important;
+}
+
+body.dark-mode .puja-section {
+    color: #FFF4D9 !important;
 }
 
 /* Scripture lines & number blocks:
@@ -1303,9 +1310,9 @@ body.dark-mode .reader-header {
     text-align: left !important;
     font-family: var(--font-serif);
     font-size: clamp(1.15rem, 3.8vw, 1.3rem);
-    line-height: 2.0;
+    line-height: 1.85;
     color: #222222;
-    margin: 0 0 14px;
+    margin: 0 0 8px;
     white-space: pre-wrap;
     letter-spacing: normal !important;
     background: transparent !important;

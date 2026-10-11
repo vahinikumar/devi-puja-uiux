@@ -1,4 +1,4 @@
-const CACHE_NAME = "devi-veda-v11";
+const CACHE_NAME = "devi-veda-v12";
 
 const APP_FILES = [
     // Root

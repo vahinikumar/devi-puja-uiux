@@ -216,7 +216,7 @@ async function loadJson(){
                 element.className = "puja-line";
             }
        }
-        element.innerHTML = text.replace(/\n/g,"<br>");
+        element.innerHTML = text.trim().replace(/\n/g,"<br>");
         contentEl.appendChild(element);
 
     });
@@ -234,7 +234,7 @@ async function loadDeviDhyanam(){
         const lines = data.content || [];
         let dhyanam = "";
         for(const line of lines){
-            dhyanam += line+"\n";
+            dhyanam += String(line).trim() + "\n";
             if(String(line).includes("ధ్యాయామి")){
                 break;
             }
@@ -244,7 +244,7 @@ async function loadDeviDhyanam(){
             contentEl.innerHTML =
             contentEl.innerHTML.replace(
                 "{ధ్యానశ్లోకాలు}",
-                dhyanam.replace(/\n/g,"<br>")
+                dhyanam.trim().replace(/\n/g,"<br>")
             );
         }
 
