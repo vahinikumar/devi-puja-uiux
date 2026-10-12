@@ -1010,7 +1010,6 @@ body:has(.reader) {
     padding-top: 0 !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
-    background-color: #FFFFFF !important;
 }
 
 .reader-header {
@@ -1029,10 +1028,7 @@ body:has(.reader) {
 }
 
 .reader-header::after {
-    content: "";
-    width: 48px;
-    height: 1px;
-    display: block;
+    display: none !important;
 }
 
 .reader-back-btn {
@@ -1075,7 +1071,11 @@ body:has(.reader) {
 }
 
 .reader-header-icon {
-    display: none !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 100%;
 }
 
 /* Devi Bhakti Specific Header Color Theme
@@ -1143,9 +1143,29 @@ body.dark-mode .theme-toggle-fixed {
     border-color: #D9A441;
 }
 
+/* Nav bar toggle for pages with .top-nav-bar */
+.top-nav-bar .theme-toggle-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #FFFDF8;
+    border: 1.5px solid var(--color-gold);
+    color: var(--color-maroon);
+    font-size: 1.25rem;
+    box-shadow: 0 2px 8px rgba(62, 12, 19, 0.08);
+    margin-left: auto;
+}
+
+body.dark-mode .top-nav-bar .theme-toggle-btn {
+    background: #1F1717;
+    border-color: #D9A441;
+    color: #E0B04A;
+}
+
 /* ========================================================
    GLOBAL DARK MODE SYSTEM (Black/Dark Manuscript Style)
    ======================================================== */
+html.dark-mode,
 body.dark-mode {
     background-color: #0F0F0F !important;
     color: #F5E6C8 !important;
@@ -1155,21 +1175,55 @@ body.dark-mode::before {
     opacity: 0.05 !important;
 }
 
-/* Reading content dark manuscript palette */
+/* Home page & Devi menu dark mode background overrides */
+body.dark-mode.home-page,
+body.dark-mode:has(.home-temple-header),
+body.dark-mode.devi-menu-page {
+    background: #0F0F0F !important;
+    background-image: none !important;
+}
+
+/* Reading content dark manuscript palette (Pure Black canvas & Crisp White text) */
+body.dark-mode:has(.reader-header),
+body.dark-mode:has(.puja-reader),
+body.dark-mode:has(.devi-reader),
+body.dark-mode:has(.reader),
+body.dark-mode .puja-reader,
+body.dark-mode .devi-reader,
+body.dark-mode .reader,
+body.dark-mode .reader-content,
+body.dark-mode #content {
+    background: #000000 !important;
+    background-color: #000000 !important;
+    background-image: none !important;
+}
+
 body.dark-mode .puja-reader,
 body.dark-mode .devi-reader,
 body.dark-mode .reader,
 body.dark-mode .reader-content,
 body.dark-mode #content,
-body.dark-mode #content * {
-    color: #F5E6C8 !important;
-}
-
+body.dark-mode #content *,
 body.dark-mode .reader-line,
 body.dark-mode .puja-line,
-body.dark-mode .number-block {
-    color: #F5E6C8 !important;
+body.dark-mode .number-block,
+body.dark-mode .devi-reader #content div,
+body.dark-mode .reader #content div,
+body.dark-mode .puja-reader #content div {
+    color: #FFFFFF !important;
     background: transparent !important;
+}
+
+body.dark-mode .puja-section {
+    color: #FFF4D9 !important;
+    background: transparent !important;
+}
+
+body.dark-mode .sankalpam-dotted {
+    text-decoration: underline dotted #E7C479 2.5px !important;
+    text-underline-offset: 6px;
+    text-decoration-skip-ink: none;
+    color: #FFFFFF !important;
 }
 
 /* Headings & accent preservation in dark mode */
@@ -1544,7 +1598,10 @@ body.has-bottom-nav {
     color: var(--color-text-secondary);
     margin-top: 4px;
 }
-/* Pure white reading page */
+/* ========================================================
+   READING PAGES ISOLATION: PURE WHITE (LIGHT) vs PURE BLACK (DARK)
+   ======================================================== */
+/* Hide background texture layer on all reading screens */
 body:has(.reader-header)::before,
 body:has(.devi-reader)::before,
 body:has(.puja-reader)::before,
@@ -1552,16 +1609,75 @@ body:has(.reader)::before {
     display: none !important;
 }
 
-body:has(.reader-header),
-body:has(.devi-reader),
-body:has(.puja-reader),
-body:has(.reader),
-.puja-reader,
-.devi-reader,
-.reader,
-.reader-content,
-#content {
+/* 1. Light Mode: Pure White Canvas with Dark Readable Text */
+body:not(.dark-mode):has(.reader-header),
+body:not(.dark-mode):has(.devi-reader),
+body:not(.dark-mode):has(.puja-reader),
+body:not(.dark-mode):has(.reader),
+body:not(.dark-mode) .puja-reader,
+body:not(.dark-mode) .devi-reader,
+body:not(.dark-mode) .reader,
+body:not(.dark-mode) .reader-content,
+body:not(.dark-mode) #content {
     background: #FFFFFF !important;
     background-color: #FFFFFF !important;
     background-image: none !important;
+}
+
+body:not(.dark-mode) .puja-line,
+body:not(.dark-mode) .reader-line,
+body:not(.dark-mode) .number-block,
+body:not(.dark-mode) .devi-reader #content div,
+body:not(.dark-mode) .reader #content div,
+body:not(.dark-mode) .puja-reader #content div {
+    color: #222222 !important;
+}
+
+body:not(.dark-mode) .puja-section {
+    color: #000000 !important;
+}
+
+body:not(.dark-mode) .sankalpam-dotted {
+    text-decoration: underline dotted #7A1726 2.5px !important;
+    text-underline-offset: 6px;
+    text-decoration-skip-ink: none;
+}
+
+/* 2. Dark Mode: Pure Black Canvas with Crisp White Text */
+body.dark-mode:has(.reader-header),
+body.dark-mode:has(.devi-reader),
+body.dark-mode:has(.puja-reader),
+body.dark-mode:has(.reader),
+body.dark-mode .puja-reader,
+body.dark-mode .devi-reader,
+body.dark-mode .reader,
+body.dark-mode .reader-content,
+body.dark-mode #content {
+    background: #000000 !important;
+    background-color: #000000 !important;
+    background-image: none !important;
+}
+
+body.dark-mode .puja-line,
+body.dark-mode .reader-line,
+body.dark-mode .number-block,
+body.dark-mode .devi-reader #content div,
+body.dark-mode .reader #content div,
+body.dark-mode .puja-reader #content div,
+body.dark-mode #content,
+body.dark-mode #content * {
+    color: #FFFFFF !important;
+    background: transparent !important;
+}
+
+body.dark-mode .puja-section {
+    color: #FFF4D9 !important;
+    background: transparent !important;
+}
+
+body.dark-mode .sankalpam-dotted {
+    text-decoration: underline dotted #E7C479 2.5px !important;
+    text-underline-offset: 6px;
+    text-decoration-skip-ink: none;
+    color: #FFFFFF !important;
 }

@@ -1,3 +1,17 @@
+// Immediate theme application to prevent flash of wrong theme
+(function applySavedThemeEarly() {
+    try {
+        const savedTheme = localStorage.getItem("app_theme") || "light";
+        if (savedTheme === "dark") {
+            document.documentElement.classList.add("dark-mode");
+            if (document.body) document.body.classList.add("dark-mode");
+        } else {
+            document.documentElement.classList.remove("dark-mode");
+            if (document.body) document.body.classList.remove("dark-mode");
+        }
+    } catch (e) {}
+})();
+
 // durga_pooja modular navigation
 function openPage(path) { window.open(path, "_blank"); }
 function setJsonAndOpen(jsonFile, page) {
@@ -309,19 +323,16 @@ function filterMantrapushpamContent(content, file){
 }
 // Reusable Global Dark Mode System
 function initTheme() {
-    // Exclude Home screen to preserve its approved temple entrance art
-    const isHomePage = document.querySelector(".temple-home-wrapper") !== null;
-    if (isHomePage) return;
-
     const savedTheme = localStorage.getItem("app_theme") || "light";
     if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark-mode");
         document.body.classList.add("dark-mode");
     } else {
+        document.documentElement.classList.remove("dark-mode");
         document.body.classList.remove("dark-mode");
     }
 
     // Mount theme toggle button
-    const readerHeader = document.querySelector(".reader-header");
     let toggleBtn = document.querySelector(".theme-toggle-btn");
 
     if (!toggleBtn) {
@@ -330,8 +341,12 @@ function initTheme() {
         toggleBtn.setAttribute("aria-label", "డార్క్ మోడ్ మార్చు");
         toggleBtn.type = "button";
 
+        const readerHeader = document.querySelector(".reader-header");
+        const hdSideBtn = document.querySelector(".hd .btn.side");
+        const topNavBar = document.querySelector(".top-nav-bar");
+
         if (readerHeader) {
-            // Replace or place in the 3rd column of reader-header
+            // Place in the 3rd column of reader-header
             const iconSlot = readerHeader.querySelector(".reader-header-icon");
             if (iconSlot) {
                 iconSlot.style.display = "inline-flex";
@@ -340,6 +355,11 @@ function initTheme() {
             } else {
                 readerHeader.appendChild(toggleBtn);
             }
+        } else if (hdSideBtn) {
+            toggleBtn.className = "btn side theme-toggle-btn";
+            hdSideBtn.parentNode.replaceChild(toggleBtn, hdSideBtn);
+        } else if (topNavBar) {
+            topNavBar.appendChild(toggleBtn);
         } else {
             toggleBtn.classList.add("theme-toggle-fixed");
             document.body.appendChild(toggleBtn);
@@ -347,6 +367,7 @@ function initTheme() {
 
         toggleBtn.addEventListener("click", () => {
             const isDark = document.body.classList.toggle("dark-mode");
+            document.documentElement.classList.toggle("dark-mode", isDark);
             const newTheme = isDark ? "dark" : "light";
             localStorage.setItem("app_theme", newTheme);
             updateThemeIcon(toggleBtn, newTheme);
@@ -362,6 +383,19 @@ function updateThemeIcon(btn, theme) {
     btn.textContent = theme === "dark" ? "☀️" : "🌙";
     btn.setAttribute("title", theme === "dark" ? "లైట్ మోడ్" : "డార్క్ మోడ్");
 }
+
+window.addEventListener("pageshow", () => {
+    const savedTheme = localStorage.getItem("app_theme") || "light";
+    if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark-mode");
+        if (document.body) document.body.classList.add("dark-mode");
+    } else {
+        document.documentElement.classList.remove("dark-mode");
+        if (document.body) document.body.classList.remove("dark-mode");
+    }
+    const toggleBtn = document.querySelector(".theme-toggle-btn");
+    if (toggleBtn) updateThemeIcon(toggleBtn, savedTheme);
+});
 
 const dailyDeviMap = {
     "2026-10-11": { key: "bala", name: "శ్రీ బాలా త్రిపుర సుందరీ దేవి", img: "devi/assets/bala.jpg" },
