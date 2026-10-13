@@ -252,6 +252,7 @@ async function loadJson(){
         contentEl.appendChild(element);
 
     });
+    initReaderFlow();
     }catch(error){
         contentEl.textContent="కంటెంట్ లోడ్ కాలేదు: "+error.message;
         console.error(error);
@@ -350,8 +351,13 @@ function initTheme() {
             const iconSlot = readerHeader.querySelector(".reader-header-icon");
             if (iconSlot) {
                 iconSlot.style.display = "inline-flex";
-                iconSlot.innerHTML = "";
-                iconSlot.appendChild(toggleBtn);
+                // Remove any deepam or raw text nodes in the slot
+                Array.from(iconSlot.childNodes).forEach(node => {
+                    if (node.nodeType === Node.TEXT_NODE) node.remove();
+                });
+                if (!iconSlot.contains(toggleBtn)) {
+                    iconSlot.appendChild(toggleBtn);
+                }
             } else {
                 readerHeader.appendChild(toggleBtn);
             }
@@ -382,6 +388,79 @@ function updateThemeIcon(btn, theme) {
     if (!btn) return;
     btn.textContent = theme === "dark" ? "☀️" : "🌙";
     btn.setAttribute("title", theme === "dark" ? "లైట్ మోడ్" : "డార్క్ మోడ్");
+}
+
+function initReaderFlow() {
+    const bottomNav = document.querySelector(".reader-bottom-nav");
+    if (!bottomNav) return;
+
+    // Find the currently active/visible target button in bottomNav
+    function getActiveNextTarget() {
+        const buttons = Array.from(bottomNav.querySelectorAll("button"));
+        return buttons.find(btn => !btn.hidden && btn.style.display !== "none" && btn.offsetParent !== null) || buttons[0];
+    }
+
+    const readerHeader = document.querySelector(".reader-header");
+    if (readerHeader) {
+        const iconSlot = readerHeader.querySelector(".reader-header-icon");
+        if (iconSlot) {
+            let nextBtn = iconSlot.querySelector(".reader-next-btn");
+            const activeTarget = getActiveNextTarget();
+
+            if (activeTarget) {
+                if (!nextBtn) {
+                    nextBtn = document.createElement("button");
+                    nextBtn.type = "button";
+                    nextBtn.className = "reader-next-btn";
+                    nextBtn.textContent = "→";
+                    nextBtn.setAttribute("aria-label", "తదుపరి విభాగానికి వెళ్లండి");
+                    nextBtn.addEventListener("click", () => {
+                        const target = getActiveNextTarget();
+                        if (target) target.click();
+                    });
+                    const themeBtn = iconSlot.querySelector(".theme-toggle-btn");
+                    if (themeBtn) {
+                        iconSlot.insertBefore(nextBtn, themeBtn);
+                    } else {
+                        iconSlot.appendChild(nextBtn);
+                    }
+                }
+            } else if (nextBtn) {
+                nextBtn.remove();
+            }
+        }
+    }
+
+    function checkScrollEnd() {
+        const docElem = document.documentElement;
+        const scrollY = window.scrollY || window.pageYOffset || 0;
+        const viewportHeight = window.innerHeight || docElem.clientHeight || 0;
+        const totalHeight = Math.max(
+            document.body.scrollHeight,
+            document.body.offsetHeight,
+            docElem.scrollHeight,
+            docElem.offsetHeight
+        );
+
+        const isScrollable = totalHeight > (viewportHeight + 60);
+        // If content is longer than viewport, reveal bottom Next only when scrolled near the end (within 140px)
+        // If content fits completely on the screen, the end is already visible
+        const isNearEnd = !isScrollable || (scrollY + viewportHeight >= totalHeight - 140);
+        if (isNearEnd) {
+            bottomNav.classList.add("is-visible");
+        } else {
+            bottomNav.classList.remove("is-visible");
+        }
+    }
+
+    if (!window._readerScrollAttached) {
+        window.addEventListener("scroll", checkScrollEnd, { passive: true });
+        window.addEventListener("resize", checkScrollEnd, { passive: true });
+        window._readerScrollAttached = true;
+    }
+
+    // Run initial check once content settles
+    setTimeout(checkScrollEnd, 120);
 }
 
 window.addEventListener("pageshow", () => {
@@ -455,6 +534,7 @@ document.addEventListener("DOMContentLoaded",async()=>{
     if(document.body.dataset.ashtottara === "true") loadAshtottara();
     else loadJson();
     if(document.body.dataset.deviDhyanam === "true") loadDeviDhyanam();
+    initReaderFlow();
 });
 if ("serviceWorker" in navigator) {
     const scriptEl = document.currentScript || document.querySelector('script[src*="script.js"]');

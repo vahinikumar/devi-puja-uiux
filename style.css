@@ -1019,7 +1019,7 @@ body:has(.reader) {
     border-bottom: 2px solid #C8902A;
     box-shadow: 0 2px 8px rgba(40, 5, 5, 0.25);
     display: grid;
-    grid-template-columns: 48px 1fr 48px;
+    grid-template-columns: 44px 1fr auto;
     align-items: center;
     padding: 0 8px;
     position: sticky;
@@ -1073,9 +1073,47 @@ body:has(.reader) {
 .reader-header-icon {
     display: inline-flex !important;
     align-items: center;
-    justify-content: center;
-    width: 48px;
+    justify-content: flex-end;
+    gap: 6px;
+    min-width: 44px;
     height: 100%;
+}
+
+/* Header Next Button */
+.reader-next-btn {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #C8902A !important;
+    font-size: 1.5rem !important;
+    line-height: 1 !important;
+    padding: 6px 10px !important;
+    min-height: unset !important;
+    min-width: unset !important;
+    cursor: pointer;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.reader-next-btn:hover {
+    color: #FFF4D9 !important;
+}
+
+.reader-next-btn:active {
+    transform: scale(0.9);
+    color: #FFF4D9 !important;
+}
+
+body.dark-mode .reader-next-btn {
+    color: #E7C479 !important;
+}
+
+body:has(.devi-reader) .reader-next-btn,
+body[data-ashtottara="true"] .reader-next-btn {
+    color: #E0B04A !important;
 }
 
 /* Devi Bhakti Specific Header Color Theme
@@ -1449,15 +1487,27 @@ button:active,
     background: linear-gradient(135deg, #D4A143, #AB7821) !important;
 }
 
-/* Bottom Action Deck for Reader Flow */
+/* Bottom Action Deck for Reader Flow: Revealed only when reader reaches the end */
 .reader-bottom-nav {
     width: 100%;
     max-width: 740px;
     display: flex;
     justify-content: center;
     gap: 14px;
-    margin: 36px auto 10px;
+    margin: 36px auto 20px;
     padding: 0 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px);
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s;
+    pointer-events: none;
+}
+
+.reader-bottom-nav.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 .reader-bottom-nav button {
